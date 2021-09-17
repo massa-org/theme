@@ -15,6 +15,9 @@ dependencies:
   theme_annotation:
     path: ../theme_annotation
 
+  theme_json:
+    path: ../theme_json
+    
   build: ^2.0.0
   source_gen: ^1.0.0
   analyzer: ^2.0.0

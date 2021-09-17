@@ -7,42 +7,46 @@ part of 'theme.dart';
 // **************************************************************************
 
 _$_ThemeData _$$_ThemeDataFromJson(Map<String, dynamic> json) => _$_ThemeData(
-      const ColorConverter().fromJson(json['backgroundColor'] as String?),
-      const ColorConverter().fromJson(json['addressBarColor'] as String?),
-      addressBarBackgroundColor: const ColorConverter()
+      const NullableColorConverter()
+          .fromJson(json['backgroundColor'] as String?),
+      const NullableColorConverter()
+          .fromJson(json['addressBarColor'] as String?),
+      addressBarBackgroundColor: const NullableColorConverter()
           .fromJson(json['addressBarBackgroundColor'] as String?),
     );
 
 Map<String, dynamic> _$$_ThemeDataToJson(_$_ThemeData instance) =>
     <String, dynamic>{
       'backgroundColor':
-          const ColorConverter().toJson(instance.backgroundColor),
+          const NullableColorConverter().toJson(instance.backgroundColor),
       'addressBarColor':
-          const ColorConverter().toJson(instance.addressBarColor),
-      'addressBarBackgroundColor':
-          const ColorConverter().toJson(instance.addressBarBackgroundColor),
+          const NullableColorConverter().toJson(instance.addressBarColor),
+      'addressBarBackgroundColor': const NullableColorConverter()
+          .toJson(instance.addressBarBackgroundColor),
     };
 
 _$_ThemeData2 _$$_ThemeData2FromJson(Map<String, dynamic> json) =>
     _$_ThemeData2(
-      const ColorConverter().fromJson(json['backgroundColor'] as String?),
-      const ColorConverter().fromJson(json['addressBarColor'] as String?),
-      addressBarBackgroundColor: const ColorConverter()
+      const NullableColorConverter()
+          .fromJson(json['backgroundColor'] as String?),
+      const NullableColorConverter()
+          .fromJson(json['addressBarColor'] as String?),
+      addressBarBackgroundColor: const NullableColorConverter()
           .fromJson(json['addressBarBackgroundColor'] as String?),
-      decor: const TextDecorationConverter()
+      decor: const NullableTextDecorationConverter()
           .fromJson(json['decor'] as List<String>?),
-      style: const TextStyleConverter()
+      style: const NullableTextStyleConverter()
           .fromJson(json['style'] as Map<String, dynamic>?),
     );
 
 Map<String, dynamic> _$$_ThemeData2ToJson(_$_ThemeData2 instance) =>
     <String, dynamic>{
       'backgroundColor':
-          const ColorConverter().toJson(instance.backgroundColor),
+          const NullableColorConverter().toJson(instance.backgroundColor),
       'addressBarColor':
-          const ColorConverter().toJson(instance.addressBarColor),
-      'addressBarBackgroundColor':
-          const ColorConverter().toJson(instance.addressBarBackgroundColor),
-      'decor': const TextDecorationConverter().toJson(instance.decor),
-      'style': const TextStyleConverter().toJson(instance.style),
+          const NullableColorConverter().toJson(instance.addressBarColor),
+      'addressBarBackgroundColor': const NullableColorConverter()
+          .toJson(instance.addressBarBackgroundColor),
+      'decor': const NullableTextDecorationConverter().toJson(instance.decor),
+      'style': const NullableTextStyleConverter().toJson(instance.style),
     };

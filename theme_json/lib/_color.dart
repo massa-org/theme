@@ -1,7 +1,7 @@
 part of theme_json;
 
-class ColorConverter implements JsonConverter<Color?, String?> {
-  const ColorConverter();
+class NullableColorConverter implements JsonConverter<Color?, String?> {
+  const NullableColorConverter();
 
   @override
   Color? fromJson(String? json) {
@@ -30,4 +30,14 @@ class ColorConverter implements JsonConverter<Color?, String?> {
     if (object == null) return null;
     return '#' + object.value.toRadixString(16).padLeft(8, '0');
   }
+}
+
+class ColorConverter implements JsonConverter<Color, String> {
+  const ColorConverter();
+
+  @override
+  Color fromJson(String json) => const NullableColorConverter().fromJson(json)!;
+
+  @override
+  String toJson(Color object) => const NullableColorConverter().toJson(object)!;
 }

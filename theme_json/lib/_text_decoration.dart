@@ -1,6 +1,6 @@
 part of theme_json;
 
-class TextDecorationConverter
+class NullableTextDecorationConverter
     implements JsonConverter<TextDecoration?, List<String>?> {
   static const _tdm = {
     'none': TextDecoration.none,
@@ -9,7 +9,7 @@ class TextDecorationConverter
     'underline': TextDecoration.underline,
   };
 
-  const TextDecorationConverter();
+  const NullableTextDecorationConverter();
 
   @override
   TextDecoration? fromJson(List<String>? json) {
@@ -25,4 +25,16 @@ class TextDecorationConverter
         .map((e) => e.key)
         .toList();
   }
+}
+
+class TextDecorationConverter
+    implements JsonConverter<TextDecoration, List<String>> {
+  const TextDecorationConverter();
+  @override
+  TextDecoration fromJson(List<String> json) =>
+      const NullableTextDecorationConverter().fromJson(json)!;
+
+  @override
+  List<String> toJson(TextDecoration object) =>
+      const NullableTextDecorationConverter().toJson(object)!;
 }

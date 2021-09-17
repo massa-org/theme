@@ -1,16 +1,15 @@
 part of theme_json;
 
-
-class TextStyleConverter
+class NullableTextStyleConverter
     implements JsonConverter<TextStyle?, Map<String, dynamic>?> {
-  const TextStyleConverter();
+  const NullableTextStyleConverter();
 
   @override
   TextStyle? fromJson(Map<String, dynamic>? json) {
     if (json == null) return null;
 
-    const colorConverter = ColorConverter();
-    const textDecorationConverter = TextDecorationConverter();
+    const colorConverter = NullableColorConverter();
+    const textDecorationConverter = NullableTextDecorationConverter();
     return TextStyle(
       fontSize: (json['fontSize'] as num?)?.toDouble(),
       fontWeight: jsonToEnum(FontWeight.values, json['fontWeight']),
@@ -32,8 +31,8 @@ class TextStyleConverter
   Map<String, dynamic>? toJson(TextStyle? object) {
     if (object == null) return null;
 
-    const colorConverter = ColorConverter();
-    const textDecorationConverter = TextDecorationConverter();
+    const colorConverter = NullableColorConverter();
+    const textDecorationConverter = NullableTextDecorationConverter();
 
     return {
       'fontSize': object.fontSize,
@@ -50,4 +49,16 @@ class TextStyleConverter
       'height': object.height,
     };
   }
+}
+
+class TextStyleConverter
+    implements JsonConverter<TextStyle, Map<String, dynamic>> {
+  const TextStyleConverter();
+  @override
+  TextStyle fromJson(Map<String, dynamic> json) =>
+      const NullableTextStyleConverter().fromJson(json)!;
+
+  @override
+  Map<String, dynamic> toJson(TextStyle object) =>
+      const NullableTextStyleConverter().toJson(object)!;
 }

@@ -30,12 +30,13 @@ abstract class _$_ThemeDataBase {
 }
 
 @JsonSerializable(includeIfNull: true)
-@ColorConverter()
+@NullableColorConverter()
 class _$_ThemeData extends _ThemeData {
   /* ALL final ${e.type} ${e.name}; */
   final Color? backgroundColor;
   final Color? addressBarColor;
   final Color? addressBarBackgroundColor;
+
   const _$_ThemeData(
     /* REQUIRED this.${e.name}, */
     this.backgroundColor,
@@ -83,6 +84,7 @@ class _$Theme extends BlocProvider<ThemeDataCubit<_ThemeData>> {
           ),
           child: child,
         );
+
   // think how to rewrite this
   static void updateWithJson(BuildContext context, Map<String, dynamic> json) {
     final p = context.read<ThemeDataCubit<_ThemeData>>();
@@ -129,9 +131,9 @@ abstract class _$_ThemeData2Base {
 }
 
 @JsonSerializable(includeIfNull: true)
-@ColorConverter()
-@TextDecorationConverter()
-@TextStyleConverter()
+@NullableColorConverter()
+@NullableTextDecorationConverter()
+@NullableTextStyleConverter()
 class _$_ThemeData2 extends _ThemeData2 {
   /* ALL final ${e.type} ${e.name}; */
   final Color? backgroundColor;
@@ -139,6 +141,7 @@ class _$_ThemeData2 extends _ThemeData2 {
   final Color? addressBarBackgroundColor;
   final TextDecoration? decor;
   final TextStyle? style;
+
   const _$_ThemeData2(
     /* REQUIRED this.${e.name}, */
     this.backgroundColor,
@@ -192,6 +195,7 @@ class Theme2 extends BlocProvider<ThemeDataCubit<_ThemeData2>> {
           ),
           child: child,
         );
+
   // think how to rewrite this
   static void updateWithJson(BuildContext context, Map<String, dynamic> json) {
     final p = context.read<ThemeDataCubit<_ThemeData2>>();

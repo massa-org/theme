@@ -15,8 +15,6 @@ String enrichTemplate({
   final String dataHolderName = '_\$$className';
   final String providerName =  accesorName ?? '_\$Theme';
 
-  
-
   return '''
 abstract class $baseName {
   /* ALL \${e.type} get \${e.name}; */
