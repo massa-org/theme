@@ -13,7 +13,7 @@ String enrichTemplate({
   final positional = required.followedBy(optional).toList();
   final String baseName = '_\$${className}Base';
   final String dataHolderName = '_\$$className';
-  final String providerName =  accesorName ?? '_\$Theme';
+  final String providerName = accesorName ?? '_Theme';
 
   return '''
 abstract class $baseName {
@@ -36,7 +36,7 @@ abstract class $baseName {
 }
 
 @JsonSerializable(includeIfNull: true)
-${all.map((e) => converters[e.type.toString()]).toSet().join('\n')}
+${all.map((e) => converters[e.type.toString()]).where((e) => e != null).toSet().join('\n')}
 class $dataHolderName extends $className {
   /* ALL final \${e.type} \${e.name}; */
   ${all.map((e) => 'final ${e.type} ${e.name};').join('\n')}
