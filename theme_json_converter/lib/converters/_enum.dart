@@ -1,4 +1,4 @@
-part of theme_json;
+part of theme_json_converter;
 
 T? jsonToEnum<T>(List<T> values, String? json) {
   if (json == null) return null;

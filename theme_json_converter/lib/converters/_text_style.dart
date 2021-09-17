@@ -1,4 +1,4 @@
-part of theme_json;
+part of theme_json_converter;
 
 class NullableTextStyleConverter
     implements JsonConverter<TextStyle?, Map<String, dynamic>?> {

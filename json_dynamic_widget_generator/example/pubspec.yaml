@@ -30,8 +30,8 @@ dependencies:
   json_annotation: ^4.0.0
   json_dynamic_widget: ^2.1.0
 
-  json_component_annotation:
-    path: ../../json_component_annotation
+  json_dynamic_widget_annotation:
+    path: ../../json_dynamic_widget_annotation
   
 dev_dependencies:
   flutter_test:
@@ -40,7 +40,7 @@ dev_dependencies:
   json_serializable: ^5.0.1
   build_runner: ^2.0.0
 
-  json_component_generator:
+  json_dynamic_widget_generator:
     path: ../
 
 # For information on the generic Dart part of this file, see the

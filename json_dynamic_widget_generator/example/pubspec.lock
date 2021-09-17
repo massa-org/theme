@@ -298,20 +298,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0+1"
-  json_component_annotation:
-    dependency: "direct main"
-    description:
-      path: "../../json_component_annotation"
-      relative: true
-    source: path
-    version: "0.0.1"
-  json_component_generator:
-    dependency: "direct dev"
-    description:
-      path: ".."
-      relative: true
-    source: path
-    version: "0.0.1"
   json_conditional:
     dependency: transitive
     description:
@@ -326,6 +312,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  json_dynamic_widget_annotation:
+    dependency: "direct main"
+    description:
+      path: "../../json_dynamic_widget_annotation"
+      relative: true
+    source: path
+    version: "0.0.1"
+  json_dynamic_widget_generator:
+    dependency: "direct dev"
+    description:
+      path: ".."
+      relative: true
+    source: path
+    version: "0.0.1"
   json_schema2:
     dependency: transitive
     description:
@@ -445,6 +445,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+  recase:
+    dependency: transitive
+    description:
+      name: recase
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   rest_client:
     dependency: transitive
     description:
@@ -541,10 +548,10 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.2"
-  theme_json:
+  theme_json_converter:
     dependency: transitive
     description:
-      path: "../../theme_json"
+      path: "../../theme_json_converter"
       relative: true
     source: path
     version: "0.0.1"

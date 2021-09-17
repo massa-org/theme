@@ -113,6 +113,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  child_builder:
+    dependency: transitive
+    description:
+      name: child_builder
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   cli_util:
     dependency: transitive
     description:
@@ -200,6 +207,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  form_validation:
+    dependency: transitive
+    description:
+      name: form_validation
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   frontend_server_client:
     dependency: transitive
     description:
@@ -221,6 +235,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  http:
+    dependency: transitive
+    description:
+      name: http
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.13.3"
   http_multi_server:
     dependency: transitive
     description:
@@ -235,6 +256,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.0"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.17.0"
   io:
     dependency: transitive
     description:
@@ -256,13 +284,48 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.1.0"
-  json_component_annotation:
+  json_class:
+    dependency: transitive
+    description:
+      name: json_class
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0+1"
+  json_conditional:
+    dependency: transitive
+    description:
+      name: json_conditional
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0+1"
+  json_dynamic_widget:
+    dependency: transitive
+    description:
+      name: json_dynamic_widget
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
+  json_dynamic_widget_annotation:
     dependency: "direct main"
     description:
-      path: "../json_component_annotation"
+      path: "../json_dynamic_widget_annotation"
       relative: true
     source: path
     version: "0.0.1"
+  json_schema2:
+    dependency: transitive
+    description:
+      name: json_schema2
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0+2"
+  json_theme:
+    dependency: transitive
+    description:
+      name: json_theme
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
   lints:
     dependency: transitive
     description:
@@ -298,6 +361,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  nested:
+    dependency: transitive
+    description:
+      name: nested
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   package_config:
     dependency: transitive
     description:
@@ -326,6 +396,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.5.0"
+  provider:
+    dependency: transitive
+    description:
+      name: provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.0.0"
   pub_semver:
     dependency: transitive
     description:
@@ -340,6 +417,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  quiver:
+    dependency: transitive
+    description:
+      name: quiver
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1"
+  recase:
+    dependency: "direct main"
+    description:
+      name: recase
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
+  rest_client:
+    dependency: transitive
+    description:
+      name: rest_client
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1+2"
   shelf:
     dependency: transitive
     description:
@@ -380,6 +478,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.10.0"
+  static_translations:
+    dependency: transitive
+    description:
+      name: static_translations
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.2+1"
   stream_channel:
     dependency: transitive
     description:
@@ -415,10 +520,10 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.2"
-  theme_json:
+  theme_json_converter:
     dependency: "direct main"
     description:
-      path: "../theme_json"
+      path: "../theme_json_converter"
       relative: true
     source: path
     version: "0.0.1"
@@ -436,6 +541,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0"
+  uri:
+    dependency: transitive
+    description:
+      name: uri
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  uuid:
+    dependency: transitive
+    description:
+      name: uuid
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.4"
   vector_math:
     dependency: transitive
     description:

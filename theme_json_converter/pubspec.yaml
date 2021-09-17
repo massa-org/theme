@@ -1,4 +1,4 @@
-name: json_component_annotation
+name: theme_json_converter
 description: A new Flutter package project.
 version: 0.0.1
 homepage:
@@ -10,8 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  json_annotation: ^4.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+
+flutter:

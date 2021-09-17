@@ -450,10 +450,10 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
-  theme_json:
+  theme_json_converter:
     dependency: "direct main"
     description:
-      path: "../theme_json"
+      path: "../theme_json_converter"
       relative: true
     source: path
     version: "0.0.1"

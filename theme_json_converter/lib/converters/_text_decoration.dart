@@ -1,4 +1,4 @@
-part of theme_json;
+part of theme_json_converter;
 
 class NullableTextDecorationConverter
     implements JsonConverter<TextDecoration?, List<String>?> {

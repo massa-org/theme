@@ -1,4 +1,4 @@
-part of theme_json;
+part of theme_json_converter;
 
 class NullableColorConverter implements JsonConverter<Color?, String?> {
   const NullableColorConverter();

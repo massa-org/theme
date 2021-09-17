@@ -14,9 +14,9 @@ dependencies:
   json_annotation: ^4.0.0
   massa_utils: ^0.0.2
 
-  theme_json:
+  theme_json_converter:
     path:
-      ../theme_json
+      ../theme_json_converter
 dev_dependencies:
   flutter_test:
     sdk: flutter

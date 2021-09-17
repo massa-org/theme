@@ -12,10 +12,3 @@ _SomeTextWidgetArguments _$SomeTextWidgetArgumentsFromJson(
       json['html'] as String,
       color: const NullableColorConverter().fromJson(json['color'] as String?),
     );
-
-Map<String, dynamic> _$SomeTextWidgetArgumentsToJson(
-        _SomeTextWidgetArguments instance) =>
-    <String, dynamic>{
-      'html': instance.html,
-      'color': const NullableColorConverter().toJson(instance.color),
-    };

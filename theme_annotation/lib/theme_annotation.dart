@@ -8,7 +8,7 @@ import 'package:massa_utils/massa_utils.dart';
 export 'package:flutter_bloc/flutter_bloc.dart'
     show BlocProvider, ReadContext, WatchContext, SelectContext;
 
-export 'package:theme_json/theme_json.dart';
+export 'package:theme_json_converter/theme_json_converter.dart';
 export 'annotation.dart';
 export 'package:json_annotation/json_annotation.dart';
 

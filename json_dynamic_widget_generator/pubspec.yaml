@@ -1,4 +1,4 @@
-name: json_component_generator
+name: json_dynamic_widget_generator
 description: A new Flutter package project.
 version: 0.0.1
 homepage:
@@ -11,12 +11,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
-  json_component_annotation:
-    path: ../json_component_annotation
+  recase: ^4.0.0
+  json_dynamic_widget_annotation:
+    path: ../json_dynamic_widget_annotation
 
-  theme_json:
-    path: ../theme_json
+  theme_json_converter:
+    path: ../theme_json_converter
     
   build: ^2.0.0
   source_gen: ^1.0.0

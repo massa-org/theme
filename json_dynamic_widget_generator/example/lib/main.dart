@@ -41,11 +41,14 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
       body: const JsonWidget({
-        'type': 'SomeTextWidget',
-        'args': {
-          'html': 'someHtml',
-          'color': '#ff0000',
-        },
+        'type': 'center',
+        'child': {
+          'type': 'SomeTextWidget',
+          'args': {
+            'html': 'someHtml',
+            'color': '#ff0000',
+          },
+        }
       }),
     );
   }
