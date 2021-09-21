@@ -15,8 +15,7 @@ dependencies:
   theme_annotation:
     path: ../theme_annotation
 
-  theme_json_converter:
-    path: ../theme_json_converter
+  theme_json_converter: ^0.0.1
     
   build: ^2.0.0
   source_gen: ^1.0.0

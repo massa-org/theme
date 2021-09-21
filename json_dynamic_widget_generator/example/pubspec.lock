@@ -551,9 +551,9 @@ packages:
   theme_json_converter:
     dependency: transitive
     description:
-      path: "../../theme_json_converter"
-      relative: true
-    source: path
+      name: theme_json_converter
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.0.1"
   timing:
     dependency: transitive

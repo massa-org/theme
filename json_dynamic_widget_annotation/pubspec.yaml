@@ -12,8 +12,7 @@ dependencies:
     sdk: flutter
   json_annotation: ^4.0.0
   json_dynamic_widget: ^2.1.0
-  theme_json_converter:
-    path: ../theme_json_converter
+  theme_json_converter: ^0.0.1
 
 
 dev_dependencies:
