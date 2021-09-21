@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableScrollbarThemeDataConverter
     extends JsonConverter<ScrollbarThemeData?, Map<String, dynamic>?> {
@@ -47,19 +47,17 @@ class NullableScrollbarThemeDataConverter
   }
 }
 
+class ScrollbarThemeDataConverter
+    extends JsonConverter<ScrollbarThemeData, Map<String, dynamic>> {
+  const ScrollbarThemeDataConverter();
 
+  @override
+  ScrollbarThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableScrollbarThemeDataConverter().fromJson(json)!;
+  }
 
-        class ScrollbarThemeDataConverter extends JsonConverter<ScrollbarThemeData,Map<String, dynamic>>{
-            const ScrollbarThemeDataConverter();
-
-            @override
-            ScrollbarThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableScrollbarThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(ScrollbarThemeData value) {
-              return const NullableScrollbarThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(ScrollbarThemeData value) {
+    return const NullableScrollbarThemeDataConverter().toJson(value)!;
+  }
+}

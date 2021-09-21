@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTextHeightBehaviorConverter
     extends JsonConverter<TextHeightBehavior?, Map<String, dynamic>?> {
@@ -31,19 +31,17 @@ class NullableTextHeightBehaviorConverter
   }
 }
 
+class TextHeightBehaviorConverter
+    extends JsonConverter<TextHeightBehavior, Map<String, dynamic>> {
+  const TextHeightBehaviorConverter();
 
+  @override
+  TextHeightBehavior fromJson(Map<String, dynamic> json) {
+    return const NullableTextHeightBehaviorConverter().fromJson(json)!;
+  }
 
-        class TextHeightBehaviorConverter extends JsonConverter<TextHeightBehavior,Map<String, dynamic>>{
-            const TextHeightBehaviorConverter();
-
-            @override
-            TextHeightBehavior fromJson(Map<String, dynamic> json) {
-              return const NullableTextHeightBehaviorConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(TextHeightBehavior value) {
-              return const NullableTextHeightBehaviorConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(TextHeightBehavior value) {
+    return const NullableTextHeightBehaviorConverter().toJson(value)!;
+  }
+}

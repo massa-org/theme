@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableFlexFitConverter extends JsonConverter<FlexFit?, String?> {
   const NullableFlexFitConverter();
@@ -36,19 +36,16 @@ class NullableFlexFitConverter extends JsonConverter<FlexFit?, String?> {
   }
 }
 
+class FlexFitConverter extends JsonConverter<FlexFit, String> {
+  const FlexFitConverter();
 
+  @override
+  FlexFit fromJson(String json) {
+    return const NullableFlexFitConverter().fromJson(json)!;
+  }
 
-        class FlexFitConverter extends JsonConverter<FlexFit,String>{
-            const FlexFitConverter();
-
-            @override
-            FlexFit fromJson(String json) {
-              return const NullableFlexFitConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(FlexFit value) {
-              return const NullableFlexFitConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(FlexFit value) {
+    return const NullableFlexFitConverter().toJson(value)!;
+  }
+}

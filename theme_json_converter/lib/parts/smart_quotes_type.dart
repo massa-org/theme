@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableSmartQuotesTypeConverter
     extends JsonConverter<SmartQuotesType?, String?> {
@@ -36,19 +36,16 @@ class NullableSmartQuotesTypeConverter
   }
 }
 
+class SmartQuotesTypeConverter extends JsonConverter<SmartQuotesType, String> {
+  const SmartQuotesTypeConverter();
 
+  @override
+  SmartQuotesType fromJson(String json) {
+    return const NullableSmartQuotesTypeConverter().fromJson(json)!;
+  }
 
-        class SmartQuotesTypeConverter extends JsonConverter<SmartQuotesType,String>{
-            const SmartQuotesTypeConverter();
-
-            @override
-            SmartQuotesType fromJson(String json) {
-              return const NullableSmartQuotesTypeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(SmartQuotesType value) {
-              return const NullableSmartQuotesTypeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(SmartQuotesType value) {
+    return const NullableSmartQuotesTypeConverter().toJson(value)!;
+  }
+}

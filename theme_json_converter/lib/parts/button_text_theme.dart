@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableButtonTextThemeConverter
     extends JsonConverter<ButtonTextTheme?, String?> {
@@ -42,19 +42,16 @@ class NullableButtonTextThemeConverter
   }
 }
 
+class ButtonTextThemeConverter extends JsonConverter<ButtonTextTheme, String> {
+  const ButtonTextThemeConverter();
 
+  @override
+  ButtonTextTheme fromJson(String json) {
+    return const NullableButtonTextThemeConverter().fromJson(json)!;
+  }
 
-        class ButtonTextThemeConverter extends JsonConverter<ButtonTextTheme,String>{
-            const ButtonTextThemeConverter();
-
-            @override
-            ButtonTextTheme fromJson(String json) {
-              return const NullableButtonTextThemeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(ButtonTextTheme value) {
-              return const NullableButtonTextThemeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(ButtonTextTheme value) {
+    return const NullableButtonTextThemeConverter().toJson(value)!;
+  }
+}

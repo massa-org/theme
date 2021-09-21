@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTextSelectionThemeDataConverter
     extends JsonConverter<TextSelectionThemeData?, Map<String, dynamic>?> {
@@ -41,19 +41,17 @@ class NullableTextSelectionThemeDataConverter
   }
 }
 
+class TextSelectionThemeDataConverter
+    extends JsonConverter<TextSelectionThemeData, Map<String, dynamic>> {
+  const TextSelectionThemeDataConverter();
 
+  @override
+  TextSelectionThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableTextSelectionThemeDataConverter().fromJson(json)!;
+  }
 
-        class TextSelectionThemeDataConverter extends JsonConverter<TextSelectionThemeData,Map<String, dynamic>>{
-            const TextSelectionThemeDataConverter();
-
-            @override
-            TextSelectionThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableTextSelectionThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(TextSelectionThemeData value) {
-              return const NullableTextSelectionThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(TextSelectionThemeData value) {
+    return const NullableTextSelectionThemeDataConverter().toJson(value)!;
+  }
+}

@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableCrossAxisAlignmentConverter
     extends JsonConverter<CrossAxisAlignment?, String?> {
@@ -54,19 +54,17 @@ class NullableCrossAxisAlignmentConverter
   }
 }
 
+class CrossAxisAlignmentConverter
+    extends JsonConverter<CrossAxisAlignment, String> {
+  const CrossAxisAlignmentConverter();
 
+  @override
+  CrossAxisAlignment fromJson(String json) {
+    return const NullableCrossAxisAlignmentConverter().fromJson(json)!;
+  }
 
-        class CrossAxisAlignmentConverter extends JsonConverter<CrossAxisAlignment,String>{
-            const CrossAxisAlignmentConverter();
-
-            @override
-            CrossAxisAlignment fromJson(String json) {
-              return const NullableCrossAxisAlignmentConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(CrossAxisAlignment value) {
-              return const NullableCrossAxisAlignmentConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(CrossAxisAlignment value) {
+    return const NullableCrossAxisAlignmentConverter().toJson(value)!;
+  }
+}

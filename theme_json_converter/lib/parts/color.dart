@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableColorConverter extends JsonConverter<Color?, String?> {
   const NullableColorConverter();
@@ -46,19 +46,16 @@ class NullableColorConverter extends JsonConverter<Color?, String?> {
   }
 }
 
+class ColorConverter extends JsonConverter<Color, String> {
+  const ColorConverter();
 
+  @override
+  Color fromJson(String json) {
+    return const NullableColorConverter().fromJson(json)!;
+  }
 
-        class ColorConverter extends JsonConverter<Color,String>{
-            const ColorConverter();
-
-            @override
-            Color fromJson(String json) {
-              return const NullableColorConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(Color value) {
-              return const NullableColorConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(Color value) {
+    return const NullableColorConverter().toJson(value)!;
+  }
+}

@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableButtonBarLayoutBehaviorConverter
     extends JsonConverter<ButtonBarLayoutBehavior?, String?> {
@@ -36,19 +36,17 @@ class NullableButtonBarLayoutBehaviorConverter
   }
 }
 
+class ButtonBarLayoutBehaviorConverter
+    extends JsonConverter<ButtonBarLayoutBehavior, String> {
+  const ButtonBarLayoutBehaviorConverter();
 
+  @override
+  ButtonBarLayoutBehavior fromJson(String json) {
+    return const NullableButtonBarLayoutBehaviorConverter().fromJson(json)!;
+  }
 
-        class ButtonBarLayoutBehaviorConverter extends JsonConverter<ButtonBarLayoutBehavior,String>{
-            const ButtonBarLayoutBehaviorConverter();
-
-            @override
-            ButtonBarLayoutBehavior fromJson(String json) {
-              return const NullableButtonBarLayoutBehaviorConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(ButtonBarLayoutBehavior value) {
-              return const NullableButtonBarLayoutBehaviorConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(ButtonBarLayoutBehavior value) {
+    return const NullableButtonBarLayoutBehaviorConverter().toJson(value)!;
+  }
+}

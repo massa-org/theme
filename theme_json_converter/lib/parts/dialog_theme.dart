@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableDialogThemeConverter
     extends JsonConverter<DialogTheme?, Map<String, dynamic>?> {
@@ -44,19 +44,17 @@ class NullableDialogThemeConverter
   }
 }
 
+class DialogThemeConverter
+    extends JsonConverter<DialogTheme, Map<String, dynamic>> {
+  const DialogThemeConverter();
 
+  @override
+  DialogTheme fromJson(Map<String, dynamic> json) {
+    return const NullableDialogThemeConverter().fromJson(json)!;
+  }
 
-        class DialogThemeConverter extends JsonConverter<DialogTheme,Map<String, dynamic>>{
-            const DialogThemeConverter();
-
-            @override
-            DialogTheme fromJson(Map<String, dynamic> json) {
-              return const NullableDialogThemeConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(DialogTheme value) {
-              return const NullableDialogThemeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(DialogTheme value) {
+    return const NullableDialogThemeConverter().toJson(value)!;
+  }
+}

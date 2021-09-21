@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableMaterialStatePropertyBorderSideConverter extends JsonConverter<
     MaterialStateProperty<BorderSide?>?, Map<String, dynamic>?> {
@@ -76,19 +76,19 @@ class NullableMaterialStatePropertyBorderSideConverter extends JsonConverter<
   }
 }
 
+class MaterialStatePropertyBorderSideConverter extends JsonConverter<
+    MaterialStateProperty<BorderSide?>, Map<String, dynamic>> {
+  const MaterialStatePropertyBorderSideConverter();
 
+  @override
+  MaterialStateProperty<BorderSide?> fromJson(Map<String, dynamic> json) {
+    return const NullableMaterialStatePropertyBorderSideConverter()
+        .fromJson(json)!;
+  }
 
-        class MaterialStatePropertyBorderSideConverter extends JsonConverter<MaterialStateProperty<BorderSide?>,Map<String, dynamic>>{
-            const MaterialStatePropertyBorderSideConverter();
-
-            @override
-            MaterialStateProperty<BorderSide?> fromJson(Map<String, dynamic> json) {
-              return const NullableMaterialStatePropertyBorderSideConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(MaterialStateProperty<BorderSide?> value) {
-              return const NullableMaterialStatePropertyBorderSideConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(MaterialStateProperty<BorderSide?> value) {
+    return const NullableMaterialStatePropertyBorderSideConverter()
+        .toJson(value)!;
+  }
+}

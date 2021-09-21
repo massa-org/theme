@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableMaterialStatePropertyMouseCursorConverter extends JsonConverter<
     MaterialStateProperty<MouseCursor?>?, Map<String, dynamic>?> {
@@ -79,19 +79,19 @@ class NullableMaterialStatePropertyMouseCursorConverter extends JsonConverter<
   }
 }
 
+class MaterialStatePropertyMouseCursorConverter extends JsonConverter<
+    MaterialStateProperty<MouseCursor?>, Map<String, dynamic>> {
+  const MaterialStatePropertyMouseCursorConverter();
 
+  @override
+  MaterialStateProperty<MouseCursor?> fromJson(Map<String, dynamic> json) {
+    return const NullableMaterialStatePropertyMouseCursorConverter()
+        .fromJson(json)!;
+  }
 
-        class MaterialStatePropertyMouseCursorConverter extends JsonConverter<MaterialStateProperty<MouseCursor?>,Map<String, dynamic>>{
-            const MaterialStatePropertyMouseCursorConverter();
-
-            @override
-            MaterialStateProperty<MouseCursor?> fromJson(Map<String, dynamic> json) {
-              return const NullableMaterialStatePropertyMouseCursorConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(MaterialStateProperty<MouseCursor?> value) {
-              return const NullableMaterialStatePropertyMouseCursorConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(MaterialStateProperty<MouseCursor?> value) {
+    return const NullableMaterialStatePropertyMouseCursorConverter()
+        .toJson(value)!;
+  }
+}

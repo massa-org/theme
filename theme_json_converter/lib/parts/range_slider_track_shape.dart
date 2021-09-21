@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableRangeSliderTrackShapeConverter
     extends JsonConverter<RangeSliderTrackShape?, String?> {
@@ -33,19 +33,17 @@ class NullableRangeSliderTrackShapeConverter
   }
 }
 
+class RangeSliderTrackShapeConverter
+    extends JsonConverter<RangeSliderTrackShape, String> {
+  const RangeSliderTrackShapeConverter();
 
+  @override
+  RangeSliderTrackShape fromJson(String json) {
+    return const NullableRangeSliderTrackShapeConverter().fromJson(json)!;
+  }
 
-        class RangeSliderTrackShapeConverter extends JsonConverter<RangeSliderTrackShape,String>{
-            const RangeSliderTrackShapeConverter();
-
-            @override
-            RangeSliderTrackShape fromJson(String json) {
-              return const NullableRangeSliderTrackShapeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(RangeSliderTrackShape value) {
-              return const NullableRangeSliderTrackShapeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(RangeSliderTrackShape value) {
+    return const NullableRangeSliderTrackShapeConverter().toJson(value)!;
+  }
+}

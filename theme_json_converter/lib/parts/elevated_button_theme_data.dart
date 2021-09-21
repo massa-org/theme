@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableElevatedButtonThemeDataConverter
     extends JsonConverter<ElevatedButtonThemeData?, Map<String, dynamic>?> {
@@ -27,19 +27,17 @@ class NullableElevatedButtonThemeDataConverter
   }
 }
 
+class ElevatedButtonThemeDataConverter
+    extends JsonConverter<ElevatedButtonThemeData, Map<String, dynamic>> {
+  const ElevatedButtonThemeDataConverter();
 
+  @override
+  ElevatedButtonThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableElevatedButtonThemeDataConverter().fromJson(json)!;
+  }
 
-        class ElevatedButtonThemeDataConverter extends JsonConverter<ElevatedButtonThemeData,Map<String, dynamic>>{
-            const ElevatedButtonThemeDataConverter();
-
-            @override
-            ElevatedButtonThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableElevatedButtonThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(ElevatedButtonThemeData value) {
-              return const NullableElevatedButtonThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(ElevatedButtonThemeData value) {
+    return const NullableElevatedButtonThemeDataConverter().toJson(value)!;
+  }
+}

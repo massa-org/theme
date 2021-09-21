@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableNavigationRailThemeDataConverter
     extends JsonConverter<NavigationRailThemeData?, Map<String, dynamic>?> {
@@ -59,19 +59,17 @@ class NullableNavigationRailThemeDataConverter
   }
 }
 
+class NavigationRailThemeDataConverter
+    extends JsonConverter<NavigationRailThemeData, Map<String, dynamic>> {
+  const NavigationRailThemeDataConverter();
 
+  @override
+  NavigationRailThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableNavigationRailThemeDataConverter().fromJson(json)!;
+  }
 
-        class NavigationRailThemeDataConverter extends JsonConverter<NavigationRailThemeData,Map<String, dynamic>>{
-            const NavigationRailThemeDataConverter();
-
-            @override
-            NavigationRailThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableNavigationRailThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(NavigationRailThemeData value) {
-              return const NullableNavigationRailThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(NavigationRailThemeData value) {
+    return const NullableNavigationRailThemeDataConverter().toJson(value)!;
+  }
+}

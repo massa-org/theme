@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTabBarIndicatorSizeConverter
     extends JsonConverter<TabBarIndicatorSize?, String?> {
@@ -37,19 +37,17 @@ class NullableTabBarIndicatorSizeConverter
   }
 }
 
+class TabBarIndicatorSizeConverter
+    extends JsonConverter<TabBarIndicatorSize, String> {
+  const TabBarIndicatorSizeConverter();
 
+  @override
+  TabBarIndicatorSize fromJson(String json) {
+    return const NullableTabBarIndicatorSizeConverter().fromJson(json)!;
+  }
 
-        class TabBarIndicatorSizeConverter extends JsonConverter<TabBarIndicatorSize,String>{
-            const TabBarIndicatorSizeConverter();
-
-            @override
-            TabBarIndicatorSize fromJson(String json) {
-              return const NullableTabBarIndicatorSizeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(TabBarIndicatorSize value) {
-              return const NullableTabBarIndicatorSizeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(TabBarIndicatorSize value) {
+    return const NullableTabBarIndicatorSizeConverter().toJson(value)!;
+  }
+}

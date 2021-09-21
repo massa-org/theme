@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableFloatingActionButtonThemeDataConverter extends JsonConverter<
     FloatingActionButtonThemeData?, Map<String, dynamic>?> {
@@ -59,19 +59,19 @@ class NullableFloatingActionButtonThemeDataConverter extends JsonConverter<
   }
 }
 
+class FloatingActionButtonThemeDataConverter
+    extends JsonConverter<FloatingActionButtonThemeData, Map<String, dynamic>> {
+  const FloatingActionButtonThemeDataConverter();
 
+  @override
+  FloatingActionButtonThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableFloatingActionButtonThemeDataConverter()
+        .fromJson(json)!;
+  }
 
-        class FloatingActionButtonThemeDataConverter extends JsonConverter<FloatingActionButtonThemeData,Map<String, dynamic>>{
-            const FloatingActionButtonThemeDataConverter();
-
-            @override
-            FloatingActionButtonThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableFloatingActionButtonThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(FloatingActionButtonThemeData value) {
-              return const NullableFloatingActionButtonThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(FloatingActionButtonThemeData value) {
+    return const NullableFloatingActionButtonThemeDataConverter()
+        .toJson(value)!;
+  }
+}

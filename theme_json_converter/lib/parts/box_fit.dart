@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableBoxFitConverter extends JsonConverter<BoxFit?, String?> {
   const NullableBoxFitConverter();
@@ -71,19 +71,16 @@ class NullableBoxFitConverter extends JsonConverter<BoxFit?, String?> {
   }
 }
 
+class BoxFitConverter extends JsonConverter<BoxFit, String> {
+  const BoxFitConverter();
 
+  @override
+  BoxFit fromJson(String json) {
+    return const NullableBoxFitConverter().fromJson(json)!;
+  }
 
-        class BoxFitConverter extends JsonConverter<BoxFit,String>{
-            const BoxFitConverter();
-
-            @override
-            BoxFit fromJson(String json) {
-              return const NullableBoxFitConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(BoxFit value) {
-              return const NullableBoxFitConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(BoxFit value) {
+    return const NullableBoxFitConverter().toJson(value)!;
+  }
+}

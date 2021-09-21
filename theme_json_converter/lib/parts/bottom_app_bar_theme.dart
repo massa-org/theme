@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableBottomAppBarThemeConverter
     extends JsonConverter<BottomAppBarTheme?, Map<String, dynamic>?> {
@@ -33,19 +33,17 @@ class NullableBottomAppBarThemeConverter
   }
 }
 
+class BottomAppBarThemeConverter
+    extends JsonConverter<BottomAppBarTheme, Map<String, dynamic>> {
+  const BottomAppBarThemeConverter();
 
+  @override
+  BottomAppBarTheme fromJson(Map<String, dynamic> json) {
+    return const NullableBottomAppBarThemeConverter().fromJson(json)!;
+  }
 
-        class BottomAppBarThemeConverter extends JsonConverter<BottomAppBarTheme,Map<String, dynamic>>{
-            const BottomAppBarThemeConverter();
-
-            @override
-            BottomAppBarTheme fromJson(Map<String, dynamic> json) {
-              return const NullableBottomAppBarThemeConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(BottomAppBarTheme value) {
-              return const NullableBottomAppBarThemeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(BottomAppBarTheme value) {
+    return const NullableBottomAppBarThemeConverter().toJson(value)!;
+  }
+}

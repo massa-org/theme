@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTextAlignConverter extends JsonConverter<TextAlign?, String?> {
   const NullableTextAlignConverter();
@@ -59,19 +59,16 @@ class NullableTextAlignConverter extends JsonConverter<TextAlign?, String?> {
   }
 }
 
+class TextAlignConverter extends JsonConverter<TextAlign, String> {
+  const TextAlignConverter();
 
+  @override
+  TextAlign fromJson(String json) {
+    return const NullableTextAlignConverter().fromJson(json)!;
+  }
 
-        class TextAlignConverter extends JsonConverter<TextAlign,String>{
-            const TextAlignConverter();
-
-            @override
-            TextAlign fromJson(String json) {
-              return const NullableTextAlignConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(TextAlign value) {
-              return const NullableTextAlignConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(TextAlign value) {
+    return const NullableTextAlignConverter().toJson(value)!;
+  }
+}

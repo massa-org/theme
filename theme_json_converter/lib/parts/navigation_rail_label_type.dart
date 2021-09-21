@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableNavigationRailLabelTypeConverter
     extends JsonConverter<NavigationRailLabelType?, String?> {
@@ -44,19 +44,17 @@ class NullableNavigationRailLabelTypeConverter
   }
 }
 
+class NavigationRailLabelTypeConverter
+    extends JsonConverter<NavigationRailLabelType, String> {
+  const NavigationRailLabelTypeConverter();
 
+  @override
+  NavigationRailLabelType fromJson(String json) {
+    return const NullableNavigationRailLabelTypeConverter().fromJson(json)!;
+  }
 
-        class NavigationRailLabelTypeConverter extends JsonConverter<NavigationRailLabelType,String>{
-            const NavigationRailLabelTypeConverter();
-
-            @override
-            NavigationRailLabelType fromJson(String json) {
-              return const NullableNavigationRailLabelTypeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(NavigationRailLabelType value) {
-              return const NullableNavigationRailLabelTypeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(NavigationRailLabelType value) {
+    return const NullableNavigationRailLabelTypeConverter().toJson(value)!;
+  }
+}

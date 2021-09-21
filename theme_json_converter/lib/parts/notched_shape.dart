@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableNotchedShapeConverter
     extends JsonConverter<NotchedShape?, String?> {
@@ -26,19 +26,16 @@ class NullableNotchedShapeConverter
   }
 }
 
+class NotchedShapeConverter extends JsonConverter<NotchedShape, String> {
+  const NotchedShapeConverter();
 
+  @override
+  NotchedShape fromJson(String json) {
+    return const NullableNotchedShapeConverter().fromJson(json)!;
+  }
 
-        class NotchedShapeConverter extends JsonConverter<NotchedShape,String>{
-            const NotchedShapeConverter();
-
-            @override
-            NotchedShape fromJson(String json) {
-              return const NullableNotchedShapeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(NotchedShape value) {
-              return const NullableNotchedShapeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(NotchedShape value) {
+    return const NullableNotchedShapeConverter().toJson(value)!;
+  }
+}

@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableBorderRadiusConverter
     extends JsonConverter<BorderRadius?, Map<String, dynamic>?> {
@@ -85,19 +85,17 @@ class NullableBorderRadiusConverter
   }
 }
 
+class BorderRadiusConverter
+    extends JsonConverter<BorderRadius, Map<String, dynamic>> {
+  const BorderRadiusConverter();
 
+  @override
+  BorderRadius fromJson(Map<String, dynamic> json) {
+    return const NullableBorderRadiusConverter().fromJson(json)!;
+  }
 
-        class BorderRadiusConverter extends JsonConverter<BorderRadius,Map<String, dynamic>>{
-            const BorderRadiusConverter();
-
-            @override
-            BorderRadius fromJson(Map<String, dynamic> json) {
-              return const NullableBorderRadiusConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(BorderRadius value) {
-              return const NullableBorderRadiusConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(BorderRadius value) {
+    return const NullableBorderRadiusConverter().toJson(value)!;
+  }
+}

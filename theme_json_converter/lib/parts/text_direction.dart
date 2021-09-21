@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTextDirectionConverter
     extends JsonConverter<TextDirection?, String?> {
@@ -37,19 +37,16 @@ class NullableTextDirectionConverter
   }
 }
 
+class TextDirectionConverter extends JsonConverter<TextDirection, String> {
+  const TextDirectionConverter();
 
+  @override
+  TextDirection fromJson(String json) {
+    return const NullableTextDirectionConverter().fromJson(json)!;
+  }
 
-        class TextDirectionConverter extends JsonConverter<TextDirection,String>{
-            const TextDirectionConverter();
-
-            @override
-            TextDirection fromJson(String json) {
-              return const NullableTextDirectionConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(TextDirection value) {
-              return const NullableTextDirectionConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(TextDirection value) {
+    return const NullableTextDirectionConverter().toJson(value)!;
+  }
+}

@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableBoxConstraintsConverter
     extends JsonConverter<BoxConstraints?, Map<String, dynamic>?> {
@@ -31,19 +31,17 @@ class NullableBoxConstraintsConverter
   }
 }
 
+class BoxConstraintsConverter
+    extends JsonConverter<BoxConstraints, Map<String, dynamic>> {
+  const BoxConstraintsConverter();
 
+  @override
+  BoxConstraints fromJson(Map<String, dynamic> json) {
+    return const NullableBoxConstraintsConverter().fromJson(json)!;
+  }
 
-        class BoxConstraintsConverter extends JsonConverter<BoxConstraints,Map<String, dynamic>>{
-            const BoxConstraintsConverter();
-
-            @override
-            BoxConstraints fromJson(Map<String, dynamic> json) {
-              return const NullableBoxConstraintsConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(BoxConstraints value) {
-              return const NullableBoxConstraintsConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(BoxConstraints value) {
+    return const NullableBoxConstraintsConverter().toJson(value)!;
+  }
+}

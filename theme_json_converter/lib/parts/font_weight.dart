@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableFontWeightConverter extends JsonConverter<FontWeight?, String?> {
   const NullableFontWeightConverter();
@@ -99,19 +99,16 @@ class NullableFontWeightConverter extends JsonConverter<FontWeight?, String?> {
   }
 }
 
+class FontWeightConverter extends JsonConverter<FontWeight, String> {
+  const FontWeightConverter();
 
+  @override
+  FontWeight fromJson(String json) {
+    return const NullableFontWeightConverter().fromJson(json)!;
+  }
 
-        class FontWeightConverter extends JsonConverter<FontWeight,String>{
-            const FontWeightConverter();
-
-            @override
-            FontWeight fromJson(String json) {
-              return const NullableFontWeightConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(FontWeight value) {
-              return const NullableFontWeightConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(FontWeight value) {
+    return const NullableFontWeightConverter().toJson(value)!;
+  }
+}

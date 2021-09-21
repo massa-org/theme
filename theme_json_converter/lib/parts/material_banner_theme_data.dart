@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableMaterialBannerThemeDataConverter
     extends JsonConverter<MaterialBannerThemeData?, Map<String, dynamic>?> {
@@ -43,19 +43,17 @@ class NullableMaterialBannerThemeDataConverter
   }
 }
 
+class MaterialBannerThemeDataConverter
+    extends JsonConverter<MaterialBannerThemeData, Map<String, dynamic>> {
+  const MaterialBannerThemeDataConverter();
 
+  @override
+  MaterialBannerThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableMaterialBannerThemeDataConverter().fromJson(json)!;
+  }
 
-        class MaterialBannerThemeDataConverter extends JsonConverter<MaterialBannerThemeData,Map<String, dynamic>>{
-            const MaterialBannerThemeDataConverter();
-
-            @override
-            MaterialBannerThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableMaterialBannerThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(MaterialBannerThemeData value) {
-              return const NullableMaterialBannerThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(MaterialBannerThemeData value) {
+    return const NullableMaterialBannerThemeDataConverter().toJson(value)!;
+  }
+}

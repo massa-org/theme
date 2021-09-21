@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableBottomNavigationBarThemeDataConverter extends JsonConverter<
     BottomNavigationBarThemeData?, Map<String, dynamic>?> {
@@ -73,19 +73,18 @@ class NullableBottomNavigationBarThemeDataConverter extends JsonConverter<
   }
 }
 
+class BottomNavigationBarThemeDataConverter
+    extends JsonConverter<BottomNavigationBarThemeData, Map<String, dynamic>> {
+  const BottomNavigationBarThemeDataConverter();
 
+  @override
+  BottomNavigationBarThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableBottomNavigationBarThemeDataConverter()
+        .fromJson(json)!;
+  }
 
-        class BottomNavigationBarThemeDataConverter extends JsonConverter<BottomNavigationBarThemeData,Map<String, dynamic>>{
-            const BottomNavigationBarThemeDataConverter();
-
-            @override
-            BottomNavigationBarThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableBottomNavigationBarThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(BottomNavigationBarThemeData value) {
-              return const NullableBottomNavigationBarThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(BottomNavigationBarThemeData value) {
+    return const NullableBottomNavigationBarThemeDataConverter().toJson(value)!;
+  }
+}

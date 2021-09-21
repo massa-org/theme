@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableAutovalidateModeConverter
     extends JsonConverter<AutovalidateMode?, String?> {
@@ -44,19 +44,17 @@ class NullableAutovalidateModeConverter
   }
 }
 
+class AutovalidateModeConverter
+    extends JsonConverter<AutovalidateMode, String> {
+  const AutovalidateModeConverter();
 
+  @override
+  AutovalidateMode fromJson(String json) {
+    return const NullableAutovalidateModeConverter().fromJson(json)!;
+  }
 
-        class AutovalidateModeConverter extends JsonConverter<AutovalidateMode,String>{
-            const AutovalidateModeConverter();
-
-            @override
-            AutovalidateMode fromJson(String json) {
-              return const NullableAutovalidateModeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(AutovalidateMode value) {
-              return const NullableAutovalidateModeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(AutovalidateMode value) {
+    return const NullableAutovalidateModeConverter().toJson(value)!;
+  }
+}

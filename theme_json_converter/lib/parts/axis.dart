@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableAxisConverter extends JsonConverter<Axis?, String?> {
   const NullableAxisConverter();
@@ -36,19 +36,16 @@ class NullableAxisConverter extends JsonConverter<Axis?, String?> {
   }
 }
 
+class AxisConverter extends JsonConverter<Axis, String> {
+  const AxisConverter();
 
+  @override
+  Axis fromJson(String json) {
+    return const NullableAxisConverter().fromJson(json)!;
+  }
 
-        class AxisConverter extends JsonConverter<Axis,String>{
-            const AxisConverter();
-
-            @override
-            Axis fromJson(String json) {
-              return const NullableAxisConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(Axis value) {
-              return const NullableAxisConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(Axis value) {
+    return const NullableAxisConverter().toJson(value)!;
+  }
+}

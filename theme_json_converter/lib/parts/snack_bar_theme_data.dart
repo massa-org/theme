@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableSnackBarThemeDataConverter
     extends JsonConverter<SnackBarThemeData?, Map<String, dynamic>?> {
@@ -54,19 +54,17 @@ class NullableSnackBarThemeDataConverter
   }
 }
 
+class SnackBarThemeDataConverter
+    extends JsonConverter<SnackBarThemeData, Map<String, dynamic>> {
+  const SnackBarThemeDataConverter();
 
+  @override
+  SnackBarThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableSnackBarThemeDataConverter().fromJson(json)!;
+  }
 
-        class SnackBarThemeDataConverter extends JsonConverter<SnackBarThemeData,Map<String, dynamic>>{
-            const SnackBarThemeDataConverter();
-
-            @override
-            SnackBarThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableSnackBarThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(SnackBarThemeData value) {
-              return const NullableSnackBarThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(SnackBarThemeData value) {
+    return const NullableSnackBarThemeDataConverter().toJson(value)!;
+  }
+}

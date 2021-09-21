@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableMaxLengthEnforcementConverter
     extends JsonConverter<MaxLengthEnforcement?, String?> {
@@ -42,19 +42,17 @@ class NullableMaxLengthEnforcementConverter
   }
 }
 
+class MaxLengthEnforcementConverter
+    extends JsonConverter<MaxLengthEnforcement, String> {
+  const MaxLengthEnforcementConverter();
 
+  @override
+  MaxLengthEnforcement fromJson(String json) {
+    return const NullableMaxLengthEnforcementConverter().fromJson(json)!;
+  }
 
-        class MaxLengthEnforcementConverter extends JsonConverter<MaxLengthEnforcement,String>{
-            const MaxLengthEnforcementConverter();
-
-            @override
-            MaxLengthEnforcement fromJson(String json) {
-              return const NullableMaxLengthEnforcementConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(MaxLengthEnforcement value) {
-              return const NullableMaxLengthEnforcementConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(MaxLengthEnforcement value) {
+    return const NullableMaxLengthEnforcementConverter().toJson(value)!;
+  }
+}

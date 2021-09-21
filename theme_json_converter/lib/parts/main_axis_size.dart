@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableMainAxisSizeConverter
     extends JsonConverter<MainAxisSize?, String?> {
@@ -36,19 +36,16 @@ class NullableMainAxisSizeConverter
   }
 }
 
+class MainAxisSizeConverter extends JsonConverter<MainAxisSize, String> {
+  const MainAxisSizeConverter();
 
+  @override
+  MainAxisSize fromJson(String json) {
+    return const NullableMainAxisSizeConverter().fromJson(json)!;
+  }
 
-        class MainAxisSizeConverter extends JsonConverter<MainAxisSize,String>{
-            const MainAxisSizeConverter();
-
-            @override
-            MainAxisSize fromJson(String json) {
-              return const NullableMainAxisSizeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(MainAxisSize value) {
-              return const NullableMainAxisSizeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(MainAxisSize value) {
+    return const NullableMainAxisSizeConverter().toJson(value)!;
+  }
+}

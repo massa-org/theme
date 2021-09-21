@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTextCapitalizationConverter
     extends JsonConverter<TextCapitalization?, String?> {
@@ -51,19 +51,17 @@ class NullableTextCapitalizationConverter
   }
 }
 
+class TextCapitalizationConverter
+    extends JsonConverter<TextCapitalization, String> {
+  const TextCapitalizationConverter();
 
+  @override
+  TextCapitalization fromJson(String json) {
+    return const NullableTextCapitalizationConverter().fromJson(json)!;
+  }
 
-        class TextCapitalizationConverter extends JsonConverter<TextCapitalization,String>{
-            const TextCapitalizationConverter();
-
-            @override
-            TextCapitalization fromJson(String json) {
-              return const NullableTextCapitalizationConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(TextCapitalization value) {
-              return const NullableTextCapitalizationConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(TextCapitalization value) {
+    return const NullableTextCapitalizationConverter().toJson(value)!;
+  }
+}

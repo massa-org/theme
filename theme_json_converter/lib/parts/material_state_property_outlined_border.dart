@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableMaterialStatePropertyOutlinedBorderConverter
     extends JsonConverter<MaterialStateProperty<OutlinedBorder?>?,
@@ -90,19 +90,19 @@ class NullableMaterialStatePropertyOutlinedBorderConverter
   }
 }
 
+class MaterialStatePropertyOutlinedBorderConverter extends JsonConverter<
+    MaterialStateProperty<OutlinedBorder?>, Map<String, dynamic>> {
+  const MaterialStatePropertyOutlinedBorderConverter();
 
+  @override
+  MaterialStateProperty<OutlinedBorder?> fromJson(Map<String, dynamic> json) {
+    return const NullableMaterialStatePropertyOutlinedBorderConverter()
+        .fromJson(json)!;
+  }
 
-        class MaterialStatePropertyOutlinedBorderConverter extends JsonConverter<MaterialStateProperty<OutlinedBorder?>,Map<String, dynamic>>{
-            const MaterialStatePropertyOutlinedBorderConverter();
-
-            @override
-            MaterialStateProperty<OutlinedBorder?> fromJson(Map<String, dynamic> json) {
-              return const NullableMaterialStatePropertyOutlinedBorderConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(MaterialStateProperty<OutlinedBorder?> value) {
-              return const NullableMaterialStatePropertyOutlinedBorderConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(MaterialStateProperty<OutlinedBorder?> value) {
+    return const NullableMaterialStatePropertyOutlinedBorderConverter()
+        .toJson(value)!;
+  }
+}

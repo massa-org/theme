@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableBorderStyleConverter
     extends JsonConverter<BorderStyle?, String?> {
@@ -37,19 +37,16 @@ class NullableBorderStyleConverter
   }
 }
 
+class BorderStyleConverter extends JsonConverter<BorderStyle, String> {
+  const BorderStyleConverter();
 
+  @override
+  BorderStyle fromJson(String json) {
+    return const NullableBorderStyleConverter().fromJson(json)!;
+  }
 
-        class BorderStyleConverter extends JsonConverter<BorderStyle,String>{
-            const BorderStyleConverter();
-
-            @override
-            BorderStyle fromJson(String json) {
-              return const NullableBorderStyleConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(BorderStyle value) {
-              return const NullableBorderStyleConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(BorderStyle value) {
+    return const NullableBorderStyleConverter().toJson(value)!;
+  }
+}

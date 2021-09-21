@@ -55,8 +55,8 @@ class _$_ThemeData extends _ThemeData {
   Map<String, dynamic> toJson() => _$$_ThemeDataToJson(this);
 }
 
-class _$Theme extends BlocProvider<ThemeDataCubit<_ThemeData>> {
-  _$Theme.fromJson([Map<String, dynamic>? json])
+class _Theme extends BlocProvider<ThemeDataCubit<_ThemeData>> {
+  _Theme.fromJson([Map<String, dynamic>? json])
       : super(
           create: ThemeDataCubit.getCreationFn(
             json == null ? null : _ThemeData.fromJson(json),
@@ -65,7 +65,7 @@ class _$Theme extends BlocProvider<ThemeDataCubit<_ThemeData>> {
         );
 
   // add ability to style components in place
-  _$Theme({
+  _Theme({
     /*ALL ${e.type?} ${e.name},*/
     Color? backgroundColor,
     Color? addressBarColor,

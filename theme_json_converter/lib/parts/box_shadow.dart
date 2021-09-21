@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableBoxShadowConverter
     extends JsonConverter<BoxShadow?, Map<String, dynamic>?> {
@@ -37,19 +37,17 @@ class NullableBoxShadowConverter
   }
 }
 
+class BoxShadowConverter
+    extends JsonConverter<BoxShadow, Map<String, dynamic>> {
+  const BoxShadowConverter();
 
+  @override
+  BoxShadow fromJson(Map<String, dynamic> json) {
+    return const NullableBoxShadowConverter().fromJson(json)!;
+  }
 
-        class BoxShadowConverter extends JsonConverter<BoxShadow,Map<String, dynamic>>{
-            const BoxShadowConverter();
-
-            @override
-            BoxShadow fromJson(Map<String, dynamic> json) {
-              return const NullableBoxShadowConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(BoxShadow value) {
-              return const NullableBoxShadowConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(BoxShadow value) {
+    return const NullableBoxShadowConverter().toJson(value)!;
+  }
+}

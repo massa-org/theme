@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableImageProviderConverter
     extends JsonConverter<ImageProvider?, Map<String, dynamic>?> {
@@ -63,19 +63,17 @@ class NullableImageProviderConverter
   }
 }
 
+class ImageProviderConverter
+    extends JsonConverter<ImageProvider, Map<String, dynamic>> {
+  const ImageProviderConverter();
 
+  @override
+  ImageProvider fromJson(Map<String, dynamic> json) {
+    return const NullableImageProviderConverter().fromJson(json)!;
+  }
 
-        class ImageProviderConverter extends JsonConverter<ImageProvider,Map<String, dynamic>>{
-            const ImageProviderConverter();
-
-            @override
-            ImageProvider fromJson(Map<String, dynamic> json) {
-              return const NullableImageProviderConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(ImageProvider value) {
-              return const NullableImageProviderConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(ImageProvider value) {
+    return const NullableImageProviderConverter().toJson(value)!;
+  }
+}

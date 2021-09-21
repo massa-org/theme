@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTextWidthBasisConverter
     extends JsonConverter<TextWidthBasis?, String?> {
@@ -36,19 +36,16 @@ class NullableTextWidthBasisConverter
   }
 }
 
+class TextWidthBasisConverter extends JsonConverter<TextWidthBasis, String> {
+  const TextWidthBasisConverter();
 
+  @override
+  TextWidthBasis fromJson(String json) {
+    return const NullableTextWidthBasisConverter().fromJson(json)!;
+  }
 
-        class TextWidthBasisConverter extends JsonConverter<TextWidthBasis,String>{
-            const TextWidthBasisConverter();
-
-            @override
-            TextWidthBasis fromJson(String json) {
-              return const NullableTextWidthBasisConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(TextWidthBasis value) {
-              return const NullableTextWidthBasisConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(TextWidthBasis value) {
+    return const NullableTextWidthBasisConverter().toJson(value)!;
+  }
+}

@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableFilterQualityConverter
     extends JsonConverter<FilterQuality?, String?> {
@@ -51,19 +51,16 @@ class NullableFilterQualityConverter
   }
 }
 
+class FilterQualityConverter extends JsonConverter<FilterQuality, String> {
+  const FilterQualityConverter();
 
+  @override
+  FilterQuality fromJson(String json) {
+    return const NullableFilterQualityConverter().fromJson(json)!;
+  }
 
-        class FilterQualityConverter extends JsonConverter<FilterQuality,String>{
-            const FilterQualityConverter();
-
-            @override
-            FilterQuality fromJson(String json) {
-              return const NullableFilterQualityConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(FilterQuality value) {
-              return const NullableFilterQualityConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(FilterQuality value) {
+    return const NullableFilterQualityConverter().toJson(value)!;
+  }
+}

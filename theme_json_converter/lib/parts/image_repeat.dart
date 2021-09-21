@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableImageRepeatConverter
     extends JsonConverter<ImageRepeat?, String?> {
@@ -48,19 +48,16 @@ class NullableImageRepeatConverter
   }
 }
 
+class ImageRepeatConverter extends JsonConverter<ImageRepeat, String> {
+  const ImageRepeatConverter();
 
+  @override
+  ImageRepeat fromJson(String json) {
+    return const NullableImageRepeatConverter().fromJson(json)!;
+  }
 
-        class ImageRepeatConverter extends JsonConverter<ImageRepeat,String>{
-            const ImageRepeatConverter();
-
-            @override
-            ImageRepeat fromJson(String json) {
-              return const NullableImageRepeatConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(ImageRepeat value) {
-              return const NullableImageRepeatConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(ImageRepeat value) {
+    return const NullableImageRepeatConverter().toJson(value)!;
+  }
+}

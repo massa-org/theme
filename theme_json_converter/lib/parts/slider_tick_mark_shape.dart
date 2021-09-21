@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableSliderTickMarkShapeConverter
     extends JsonConverter<SliderTickMarkShape?, String?> {
@@ -30,19 +30,17 @@ class NullableSliderTickMarkShapeConverter
   }
 }
 
+class SliderTickMarkShapeConverter
+    extends JsonConverter<SliderTickMarkShape, String> {
+  const SliderTickMarkShapeConverter();
 
+  @override
+  SliderTickMarkShape fromJson(String json) {
+    return const NullableSliderTickMarkShapeConverter().fromJson(json)!;
+  }
 
-        class SliderTickMarkShapeConverter extends JsonConverter<SliderTickMarkShape,String>{
-            const SliderTickMarkShapeConverter();
-
-            @override
-            SliderTickMarkShape fromJson(String json) {
-              return const NullableSliderTickMarkShapeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(SliderTickMarkShape value) {
-              return const NullableSliderTickMarkShapeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(SliderTickMarkShape value) {
+    return const NullableSliderTickMarkShapeConverter().toJson(value)!;
+  }
+}

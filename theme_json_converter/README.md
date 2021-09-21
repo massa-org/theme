@@ -11,7 +11,7 @@ Other packages with similar functionality
 All converter has same name convention
 and two version plain `{MaterialThemeType}Converter` and nullable `Nullable{MaterialThemeType}Converter`
 
-All converter code auto generated from [json_theme](https://pub.dev/packages/json_theme) package
+Right now all converter code auto generated from [json_theme](https://pub.dev/packages/json_theme) package
 
 ## Getting started
 Install like other packages, nothing new, just add to deps.

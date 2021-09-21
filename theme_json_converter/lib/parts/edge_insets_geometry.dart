@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableEdgeInsetsGeometryConverter
     extends JsonConverter<EdgeInsetsGeometry?, Map<String, dynamic>?> {
@@ -52,19 +52,17 @@ class NullableEdgeInsetsGeometryConverter
   }
 }
 
+class EdgeInsetsGeometryConverter
+    extends JsonConverter<EdgeInsetsGeometry, Map<String, dynamic>> {
+  const EdgeInsetsGeometryConverter();
 
+  @override
+  EdgeInsetsGeometry fromJson(Map<String, dynamic> json) {
+    return const NullableEdgeInsetsGeometryConverter().fromJson(json)!;
+  }
 
-        class EdgeInsetsGeometryConverter extends JsonConverter<EdgeInsetsGeometry,Map<String, dynamic>>{
-            const EdgeInsetsGeometryConverter();
-
-            @override
-            EdgeInsetsGeometry fromJson(Map<String, dynamic> json) {
-              return const NullableEdgeInsetsGeometryConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(EdgeInsetsGeometry value) {
-              return const NullableEdgeInsetsGeometryConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(EdgeInsetsGeometry value) {
+    return const NullableEdgeInsetsGeometryConverter().toJson(value)!;
+  }
+}

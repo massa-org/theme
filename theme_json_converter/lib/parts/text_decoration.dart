@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTextDecorationConverter
     extends JsonConverter<TextDecoration?, String?> {
@@ -43,19 +43,16 @@ class NullableTextDecorationConverter
   }
 }
 
+class TextDecorationConverter extends JsonConverter<TextDecoration, String> {
+  const TextDecorationConverter();
 
+  @override
+  TextDecoration fromJson(String json) {
+    return const NullableTextDecorationConverter().fromJson(json)!;
+  }
 
-        class TextDecorationConverter extends JsonConverter<TextDecoration,String>{
-            const TextDecorationConverter();
-
-            @override
-            TextDecoration fromJson(String json) {
-              return const NullableTextDecorationConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(TextDecoration value) {
-              return const NullableTextDecorationConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(TextDecoration value) {
+    return const NullableTextDecorationConverter().toJson(value)!;
+  }
+}

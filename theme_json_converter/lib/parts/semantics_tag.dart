@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableSemanticsTagConverter
     extends JsonConverter<SemanticsTag?, Map<String, dynamic>?> {
@@ -23,19 +23,17 @@ class NullableSemanticsTagConverter
   }
 }
 
+class SemanticsTagConverter
+    extends JsonConverter<SemanticsTag, Map<String, dynamic>> {
+  const SemanticsTagConverter();
 
+  @override
+  SemanticsTag fromJson(Map<String, dynamic> json) {
+    return const NullableSemanticsTagConverter().fromJson(json)!;
+  }
 
-        class SemanticsTagConverter extends JsonConverter<SemanticsTag,Map<String, dynamic>>{
-            const SemanticsTagConverter();
-
-            @override
-            SemanticsTag fromJson(Map<String, dynamic> json) {
-              return const NullableSemanticsTagConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(SemanticsTag value) {
-              return const NullableSemanticsTagConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(SemanticsTag value) {
+    return const NullableSemanticsTagConverter().toJson(value)!;
+  }
+}

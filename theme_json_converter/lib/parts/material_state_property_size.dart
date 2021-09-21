@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableMaterialStatePropertySizeConverter extends JsonConverter<
     MaterialStateProperty<Size?>?, Map<String, dynamic>?> {
@@ -78,19 +78,17 @@ class NullableMaterialStatePropertySizeConverter extends JsonConverter<
   }
 }
 
+class MaterialStatePropertySizeConverter
+    extends JsonConverter<MaterialStateProperty<Size?>, Map<String, dynamic>> {
+  const MaterialStatePropertySizeConverter();
 
+  @override
+  MaterialStateProperty<Size?> fromJson(Map<String, dynamic> json) {
+    return const NullableMaterialStatePropertySizeConverter().fromJson(json)!;
+  }
 
-        class MaterialStatePropertySizeConverter extends JsonConverter<MaterialStateProperty<Size?>,Map<String, dynamic>>{
-            const MaterialStatePropertySizeConverter();
-
-            @override
-            MaterialStateProperty<Size?> fromJson(Map<String, dynamic> json) {
-              return const NullableMaterialStatePropertySizeConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(MaterialStateProperty<Size?> value) {
-              return const NullableMaterialStatePropertySizeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(MaterialStateProperty<Size?> value) {
+    return const NullableMaterialStatePropertySizeConverter().toJson(value)!;
+  }
+}

@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTextStyleConverter
     extends JsonConverter<TextStyle?, Map<String, dynamic>?> {
@@ -118,19 +118,17 @@ class NullableTextStyleConverter
   }
 }
 
+class TextStyleConverter
+    extends JsonConverter<TextStyle, Map<String, dynamic>> {
+  const TextStyleConverter();
 
+  @override
+  TextStyle fromJson(Map<String, dynamic> json) {
+    return const NullableTextStyleConverter().fromJson(json)!;
+  }
 
-        class TextStyleConverter extends JsonConverter<TextStyle,Map<String, dynamic>>{
-            const TextStyleConverter();
-
-            @override
-            TextStyle fromJson(Map<String, dynamic> json) {
-              return const NullableTextStyleConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(TextStyle value) {
-              return const NullableTextStyleConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(TextStyle value) {
+    return const NullableTextStyleConverter().toJson(value)!;
+  }
+}

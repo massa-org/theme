@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableToolbarOptionsConverter
     extends JsonConverter<ToolbarOptions?, Map<String, dynamic>?> {
@@ -31,19 +31,17 @@ class NullableToolbarOptionsConverter
   }
 }
 
+class ToolbarOptionsConverter
+    extends JsonConverter<ToolbarOptions, Map<String, dynamic>> {
+  const ToolbarOptionsConverter();
 
+  @override
+  ToolbarOptions fromJson(Map<String, dynamic> json) {
+    return const NullableToolbarOptionsConverter().fromJson(json)!;
+  }
 
-        class ToolbarOptionsConverter extends JsonConverter<ToolbarOptions,Map<String, dynamic>>{
-            const ToolbarOptionsConverter();
-
-            @override
-            ToolbarOptions fromJson(Map<String, dynamic> json) {
-              return const NullableToolbarOptionsConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(ToolbarOptions value) {
-              return const NullableToolbarOptionsConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(ToolbarOptions value) {
+    return const NullableToolbarOptionsConverter().toJson(value)!;
+  }
+}

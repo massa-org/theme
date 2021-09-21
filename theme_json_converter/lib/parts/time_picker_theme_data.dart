@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTimePickerThemeDataConverter
     extends JsonConverter<TimePickerThemeData?, Map<String, dynamic>?> {
@@ -91,19 +91,17 @@ class NullableTimePickerThemeDataConverter
   }
 }
 
+class TimePickerThemeDataConverter
+    extends JsonConverter<TimePickerThemeData, Map<String, dynamic>> {
+  const TimePickerThemeDataConverter();
 
+  @override
+  TimePickerThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableTimePickerThemeDataConverter().fromJson(json)!;
+  }
 
-        class TimePickerThemeDataConverter extends JsonConverter<TimePickerThemeData,Map<String, dynamic>>{
-            const TimePickerThemeDataConverter();
-
-            @override
-            TimePickerThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableTimePickerThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(TimePickerThemeData value) {
-              return const NullableTimePickerThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(TimePickerThemeData value) {
+    return const NullableTimePickerThemeDataConverter().toJson(value)!;
+  }
+}

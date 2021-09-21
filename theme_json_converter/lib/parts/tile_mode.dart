@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTileModeConverter extends JsonConverter<TileMode?, String?> {
   const NullableTileModeConverter();
@@ -50,19 +50,16 @@ class NullableTileModeConverter extends JsonConverter<TileMode?, String?> {
   }
 }
 
+class TileModeConverter extends JsonConverter<TileMode, String> {
+  const TileModeConverter();
 
+  @override
+  TileMode fromJson(String json) {
+    return const NullableTileModeConverter().fromJson(json)!;
+  }
 
-        class TileModeConverter extends JsonConverter<TileMode,String>{
-            const TileModeConverter();
-
-            @override
-            TileMode fromJson(String json) {
-              return const NullableTileModeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(TileMode value) {
-              return const NullableTileModeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(TileMode value) {
+    return const NullableTileModeConverter().toJson(value)!;
+  }
+}

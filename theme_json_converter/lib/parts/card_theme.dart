@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableCardThemeConverter
     extends JsonConverter<CardTheme?, Map<String, dynamic>?> {
@@ -46,19 +46,17 @@ class NullableCardThemeConverter
   }
 }
 
+class CardThemeConverter
+    extends JsonConverter<CardTheme, Map<String, dynamic>> {
+  const CardThemeConverter();
 
+  @override
+  CardTheme fromJson(Map<String, dynamic> json) {
+    return const NullableCardThemeConverter().fromJson(json)!;
+  }
 
-        class CardThemeConverter extends JsonConverter<CardTheme,Map<String, dynamic>>{
-            const CardThemeConverter();
-
-            @override
-            CardTheme fromJson(Map<String, dynamic> json) {
-              return const NullableCardThemeConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(CardTheme value) {
-              return const NullableCardThemeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(CardTheme value) {
+    return const NullableCardThemeConverter().toJson(value)!;
+  }
+}

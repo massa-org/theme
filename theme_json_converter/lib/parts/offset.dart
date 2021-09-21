@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableOffsetConverter
     extends JsonConverter<Offset?, Map<String, dynamic>?> {
@@ -27,19 +27,16 @@ class NullableOffsetConverter
   }
 }
 
+class OffsetConverter extends JsonConverter<Offset, Map<String, dynamic>> {
+  const OffsetConverter();
 
+  @override
+  Offset fromJson(Map<String, dynamic> json) {
+    return const NullableOffsetConverter().fromJson(json)!;
+  }
 
-        class OffsetConverter extends JsonConverter<Offset,Map<String, dynamic>>{
-            const OffsetConverter();
-
-            @override
-            Offset fromJson(Map<String, dynamic> json) {
-              return const NullableOffsetConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(Offset value) {
-              return const NullableOffsetConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(Offset value) {
+    return const NullableOffsetConverter().toJson(value)!;
+  }
+}

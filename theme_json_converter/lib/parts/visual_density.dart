@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableVisualDensityConverter
     extends JsonConverter<VisualDensity?, String?> {
@@ -41,19 +41,16 @@ class NullableVisualDensityConverter
   }
 }
 
+class VisualDensityConverter extends JsonConverter<VisualDensity, String> {
+  const VisualDensityConverter();
 
+  @override
+  VisualDensity fromJson(String json) {
+    return const NullableVisualDensityConverter().fromJson(json)!;
+  }
 
-        class VisualDensityConverter extends JsonConverter<VisualDensity,String>{
-            const VisualDensityConverter();
-
-            @override
-            VisualDensity fromJson(String json) {
-              return const NullableVisualDensityConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(VisualDensity value) {
-              return const NullableVisualDensityConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(VisualDensity value) {
+    return const NullableVisualDensityConverter().toJson(value)!;
+  }
+}

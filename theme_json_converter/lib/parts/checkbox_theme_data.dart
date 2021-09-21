@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableCheckboxThemeDataConverter
     extends JsonConverter<CheckboxThemeData?, Map<String, dynamic>?> {
@@ -66,19 +66,17 @@ class NullableCheckboxThemeDataConverter
   }
 }
 
+class CheckboxThemeDataConverter
+    extends JsonConverter<CheckboxThemeData, Map<String, dynamic>> {
+  const CheckboxThemeDataConverter();
 
+  @override
+  CheckboxThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableCheckboxThemeDataConverter().fromJson(json)!;
+  }
 
-        class CheckboxThemeDataConverter extends JsonConverter<CheckboxThemeData,Map<String, dynamic>>{
-            const CheckboxThemeDataConverter();
-
-            @override
-            CheckboxThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableCheckboxThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(CheckboxThemeData value) {
-              return const NullableCheckboxThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(CheckboxThemeData value) {
+    return const NullableCheckboxThemeDataConverter().toJson(value)!;
+  }
+}

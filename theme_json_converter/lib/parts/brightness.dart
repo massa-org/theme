@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableBrightnessConverter extends JsonConverter<Brightness?, String?> {
   const NullableBrightnessConverter();
@@ -32,19 +32,16 @@ class NullableBrightnessConverter extends JsonConverter<Brightness?, String?> {
   }
 }
 
+class BrightnessConverter extends JsonConverter<Brightness, String> {
+  const BrightnessConverter();
 
+  @override
+  Brightness fromJson(String json) {
+    return const NullableBrightnessConverter().fromJson(json)!;
+  }
 
-        class BrightnessConverter extends JsonConverter<Brightness,String>{
-            const BrightnessConverter();
-
-            @override
-            Brightness fromJson(String json) {
-              return const NullableBrightnessConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(Brightness value) {
-              return const NullableBrightnessConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(Brightness value) {
+    return const NullableBrightnessConverter().toJson(value)!;
+  }
+}

@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableInputBorderConverter
     extends JsonConverter<InputBorder?, Map<String, dynamic>?> {
@@ -70,19 +70,17 @@ class NullableInputBorderConverter
   }
 }
 
+class InputBorderConverter
+    extends JsonConverter<InputBorder, Map<String, dynamic>> {
+  const InputBorderConverter();
 
+  @override
+  InputBorder fromJson(Map<String, dynamic> json) {
+    return const NullableInputBorderConverter().fromJson(json)!;
+  }
 
-        class InputBorderConverter extends JsonConverter<InputBorder,Map<String, dynamic>>{
-            const InputBorderConverter();
-
-            @override
-            InputBorder fromJson(Map<String, dynamic> json) {
-              return const NullableInputBorderConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(InputBorder value) {
-              return const NullableInputBorderConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(InputBorder value) {
+    return const NullableInputBorderConverter().toJson(value)!;
+  }
+}

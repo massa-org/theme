@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTextInputTypeConverter
     extends JsonConverter<TextInputType?, String?> {
@@ -73,19 +73,16 @@ class NullableTextInputTypeConverter
   }
 }
 
+class TextInputTypeConverter extends JsonConverter<TextInputType, String> {
+  const TextInputTypeConverter();
 
+  @override
+  TextInputType fromJson(String json) {
+    return const NullableTextInputTypeConverter().fromJson(json)!;
+  }
 
-        class TextInputTypeConverter extends JsonConverter<TextInputType,String>{
-            const TextInputTypeConverter();
-
-            @override
-            TextInputType fromJson(String json) {
-              return const NullableTextInputTypeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(TextInputType value) {
-              return const NullableTextInputTypeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(TextInputType value) {
+    return const NullableTextInputTypeConverter().toJson(value)!;
+  }
+}

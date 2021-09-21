@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableShadowConverter
     extends JsonConverter<Shadow?, Map<String, dynamic>?> {
@@ -33,19 +33,16 @@ class NullableShadowConverter
   }
 }
 
+class ShadowConverter extends JsonConverter<Shadow, Map<String, dynamic>> {
+  const ShadowConverter();
 
+  @override
+  Shadow fromJson(Map<String, dynamic> json) {
+    return const NullableShadowConverter().fromJson(json)!;
+  }
 
-        class ShadowConverter extends JsonConverter<Shadow,Map<String, dynamic>>{
-            const ShadowConverter();
-
-            @override
-            Shadow fromJson(Map<String, dynamic> json) {
-              return const NullableShadowConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(Shadow value) {
-              return const NullableShadowConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(Shadow value) {
+    return const NullableShadowConverter().toJson(value)!;
+  }
+}

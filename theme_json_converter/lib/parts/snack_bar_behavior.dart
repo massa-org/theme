@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableSnackBarBehaviorConverter
     extends JsonConverter<SnackBarBehavior?, String?> {
@@ -37,19 +37,17 @@ class NullableSnackBarBehaviorConverter
   }
 }
 
+class SnackBarBehaviorConverter
+    extends JsonConverter<SnackBarBehavior, String> {
+  const SnackBarBehaviorConverter();
 
+  @override
+  SnackBarBehavior fromJson(String json) {
+    return const NullableSnackBarBehaviorConverter().fromJson(json)!;
+  }
 
-        class SnackBarBehaviorConverter extends JsonConverter<SnackBarBehavior,String>{
-            const SnackBarBehaviorConverter();
-
-            @override
-            SnackBarBehavior fromJson(String json) {
-              return const NullableSnackBarBehaviorConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(SnackBarBehavior value) {
-              return const NullableSnackBarBehaviorConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(SnackBarBehavior value) {
+    return const NullableSnackBarBehaviorConverter().toJson(value)!;
+  }
+}

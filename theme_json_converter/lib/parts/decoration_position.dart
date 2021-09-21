@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableDecorationPositionConverter
     extends JsonConverter<DecorationPosition?, String?> {
@@ -36,19 +36,17 @@ class NullableDecorationPositionConverter
   }
 }
 
+class DecorationPositionConverter
+    extends JsonConverter<DecorationPosition, String> {
+  const DecorationPositionConverter();
 
+  @override
+  DecorationPosition fromJson(String json) {
+    return const NullableDecorationPositionConverter().fromJson(json)!;
+  }
 
-        class DecorationPositionConverter extends JsonConverter<DecorationPosition,String>{
-            const DecorationPositionConverter();
-
-            @override
-            DecorationPosition fromJson(String json) {
-              return const NullableDecorationPositionConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(DecorationPosition value) {
-              return const NullableDecorationPositionConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(DecorationPosition value) {
+    return const NullableDecorationPositionConverter().toJson(value)!;
+  }
+}

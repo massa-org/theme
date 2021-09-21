@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableGradientTransformConverter
     extends JsonConverter<GradientTransform?, Map<String, dynamic>?> {
@@ -30,19 +30,17 @@ class NullableGradientTransformConverter
   }
 }
 
+class GradientTransformConverter
+    extends JsonConverter<GradientTransform, Map<String, dynamic>> {
+  const GradientTransformConverter();
 
+  @override
+  GradientTransform fromJson(Map<String, dynamic> json) {
+    return const NullableGradientTransformConverter().fromJson(json)!;
+  }
 
-        class GradientTransformConverter extends JsonConverter<GradientTransform,Map<String, dynamic>>{
-            const GradientTransformConverter();
-
-            @override
-            GradientTransform fromJson(Map<String, dynamic> json) {
-              return const NullableGradientTransformConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(GradientTransform value) {
-              return const NullableGradientTransformConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(GradientTransform value) {
+    return const NullableGradientTransformConverter().toJson(value)!;
+  }
+}

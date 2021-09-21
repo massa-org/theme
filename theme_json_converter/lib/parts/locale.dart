@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableLocaleConverter
     extends JsonConverter<Locale?, Map<String, dynamic>?> {
@@ -27,19 +27,16 @@ class NullableLocaleConverter
   }
 }
 
+class LocaleConverter extends JsonConverter<Locale, Map<String, dynamic>> {
+  const LocaleConverter();
 
+  @override
+  Locale fromJson(Map<String, dynamic> json) {
+    return const NullableLocaleConverter().fromJson(json)!;
+  }
 
-        class LocaleConverter extends JsonConverter<Locale,Map<String, dynamic>>{
-            const LocaleConverter();
-
-            @override
-            Locale fromJson(Map<String, dynamic> json) {
-              return const NullableLocaleConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(Locale value) {
-              return const NullableLocaleConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(Locale value) {
+    return const NullableLocaleConverter().toJson(value)!;
+  }
+}

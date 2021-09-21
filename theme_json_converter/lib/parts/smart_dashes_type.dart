@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableSmartDashesTypeConverter
     extends JsonConverter<SmartDashesType?, String?> {
@@ -36,19 +36,16 @@ class NullableSmartDashesTypeConverter
   }
 }
 
+class SmartDashesTypeConverter extends JsonConverter<SmartDashesType, String> {
+  const SmartDashesTypeConverter();
 
+  @override
+  SmartDashesType fromJson(String json) {
+    return const NullableSmartDashesTypeConverter().fromJson(json)!;
+  }
 
-        class SmartDashesTypeConverter extends JsonConverter<SmartDashesType,String>{
-            const SmartDashesTypeConverter();
-
-            @override
-            SmartDashesType fromJson(String json) {
-              return const NullableSmartDashesTypeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(SmartDashesType value) {
-              return const NullableSmartDashesTypeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(SmartDashesType value) {
+    return const NullableSmartDashesTypeConverter().toJson(value)!;
+  }
+}

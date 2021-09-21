@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTooltipThemeDataConverter
     extends JsonConverter<TooltipThemeData?, Map<String, dynamic>?> {
@@ -58,19 +58,17 @@ class NullableTooltipThemeDataConverter
   }
 }
 
+class TooltipThemeDataConverter
+    extends JsonConverter<TooltipThemeData, Map<String, dynamic>> {
+  const TooltipThemeDataConverter();
 
+  @override
+  TooltipThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableTooltipThemeDataConverter().fromJson(json)!;
+  }
 
-        class TooltipThemeDataConverter extends JsonConverter<TooltipThemeData,Map<String, dynamic>>{
-            const TooltipThemeDataConverter();
-
-            @override
-            TooltipThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableTooltipThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(TooltipThemeData value) {
-              return const NullableTooltipThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(TooltipThemeData value) {
+    return const NullableTooltipThemeDataConverter().toJson(value)!;
+  }
+}

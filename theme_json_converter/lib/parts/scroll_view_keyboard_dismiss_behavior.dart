@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableScrollViewKeyboardDismissBehaviorConverter
     extends JsonConverter<ScrollViewKeyboardDismissBehavior?, String?> {
@@ -37,19 +37,19 @@ class NullableScrollViewKeyboardDismissBehaviorConverter
   }
 }
 
+class ScrollViewKeyboardDismissBehaviorConverter
+    extends JsonConverter<ScrollViewKeyboardDismissBehavior, String> {
+  const ScrollViewKeyboardDismissBehaviorConverter();
 
+  @override
+  ScrollViewKeyboardDismissBehavior fromJson(String json) {
+    return const NullableScrollViewKeyboardDismissBehaviorConverter()
+        .fromJson(json)!;
+  }
 
-        class ScrollViewKeyboardDismissBehaviorConverter extends JsonConverter<ScrollViewKeyboardDismissBehavior,String>{
-            const ScrollViewKeyboardDismissBehaviorConverter();
-
-            @override
-            ScrollViewKeyboardDismissBehavior fromJson(String json) {
-              return const NullableScrollViewKeyboardDismissBehaviorConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(ScrollViewKeyboardDismissBehavior value) {
-              return const NullableScrollViewKeyboardDismissBehaviorConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(ScrollViewKeyboardDismissBehavior value) {
+    return const NullableScrollViewKeyboardDismissBehaviorConverter()
+        .toJson(value)!;
+  }
+}

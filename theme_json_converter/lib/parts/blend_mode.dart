@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableBlendModeConverter extends JsonConverter<BlendMode?, String?> {
   const NullableBlendModeConverter();
@@ -225,19 +225,16 @@ class NullableBlendModeConverter extends JsonConverter<BlendMode?, String?> {
   }
 }
 
+class BlendModeConverter extends JsonConverter<BlendMode, String> {
+  const BlendModeConverter();
 
+  @override
+  BlendMode fromJson(String json) {
+    return const NullableBlendModeConverter().fromJson(json)!;
+  }
 
-        class BlendModeConverter extends JsonConverter<BlendMode,String>{
-            const BlendModeConverter();
-
-            @override
-            BlendMode fromJson(String json) {
-              return const NullableBlendModeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(BlendMode value) {
-              return const NullableBlendModeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(BlendMode value) {
+    return const NullableBlendModeConverter().toJson(value)!;
+  }
+}

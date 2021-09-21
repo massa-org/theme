@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableSizeConverter
     extends JsonConverter<Size?, Map<String, dynamic>?> {
@@ -27,19 +27,16 @@ class NullableSizeConverter
   }
 }
 
+class SizeConverter extends JsonConverter<Size, Map<String, dynamic>> {
+  const SizeConverter();
 
+  @override
+  Size fromJson(Map<String, dynamic> json) {
+    return const NullableSizeConverter().fromJson(json)!;
+  }
 
-        class SizeConverter extends JsonConverter<Size,Map<String, dynamic>>{
-            const SizeConverter();
-
-            @override
-            Size fromJson(Map<String, dynamic> json) {
-              return const NullableSizeConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(Size value) {
-              return const NullableSizeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(Size value) {
+    return const NullableSizeConverter().toJson(value)!;
+  }
+}

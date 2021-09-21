@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableOrdinalSortKeyConverter
     extends JsonConverter<OrdinalSortKey?, Map<String, dynamic>?> {
@@ -27,19 +27,17 @@ class NullableOrdinalSortKeyConverter
   }
 }
 
+class OrdinalSortKeyConverter
+    extends JsonConverter<OrdinalSortKey, Map<String, dynamic>> {
+  const OrdinalSortKeyConverter();
 
+  @override
+  OrdinalSortKey fromJson(Map<String, dynamic> json) {
+    return const NullableOrdinalSortKeyConverter().fromJson(json)!;
+  }
 
-        class OrdinalSortKeyConverter extends JsonConverter<OrdinalSortKey,Map<String, dynamic>>{
-            const OrdinalSortKeyConverter();
-
-            @override
-            OrdinalSortKey fromJson(Map<String, dynamic> json) {
-              return const NullableOrdinalSortKeyConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(OrdinalSortKey value) {
-              return const NullableOrdinalSortKeyConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(OrdinalSortKey value) {
+    return const NullableOrdinalSortKeyConverter().toJson(value)!;
+  }
+}

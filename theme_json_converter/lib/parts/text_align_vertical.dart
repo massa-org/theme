@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTextAlignVerticalConverter
     extends JsonConverter<TextAlignVertical?, String?> {
@@ -42,19 +42,17 @@ class NullableTextAlignVerticalConverter
   }
 }
 
+class TextAlignVerticalConverter
+    extends JsonConverter<TextAlignVertical, String> {
+  const TextAlignVerticalConverter();
 
+  @override
+  TextAlignVertical fromJson(String json) {
+    return const NullableTextAlignVerticalConverter().fromJson(json)!;
+  }
 
-        class TextAlignVerticalConverter extends JsonConverter<TextAlignVertical,String>{
-            const TextAlignVerticalConverter();
-
-            @override
-            TextAlignVertical fromJson(String json) {
-              return const NullableTextAlignVerticalConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(TextAlignVertical value) {
-              return const NullableTextAlignVerticalConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(TextAlignVertical value) {
+    return const NullableTextAlignVerticalConverter().toJson(value)!;
+  }
+}

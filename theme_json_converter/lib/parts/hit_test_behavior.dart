@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableHitTestBehaviorConverter
     extends JsonConverter<HitTestBehavior?, String?> {
@@ -44,19 +44,16 @@ class NullableHitTestBehaviorConverter
   }
 }
 
+class HitTestBehaviorConverter extends JsonConverter<HitTestBehavior, String> {
+  const HitTestBehaviorConverter();
 
+  @override
+  HitTestBehavior fromJson(String json) {
+    return const NullableHitTestBehaviorConverter().fromJson(json)!;
+  }
 
-        class HitTestBehaviorConverter extends JsonConverter<HitTestBehavior,String>{
-            const HitTestBehaviorConverter();
-
-            @override
-            HitTestBehavior fromJson(String json) {
-              return const NullableHitTestBehaviorConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(HitTestBehavior value) {
-              return const NullableHitTestBehaviorConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(HitTestBehavior value) {
+    return const NullableHitTestBehaviorConverter().toJson(value)!;
+  }
+}

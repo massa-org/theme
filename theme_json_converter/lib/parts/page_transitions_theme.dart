@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullablePageTransitionsThemeConverter
     extends JsonConverter<PageTransitionsTheme?, Map<String, dynamic>?> {
@@ -43,19 +43,17 @@ class NullablePageTransitionsThemeConverter
   }
 }
 
+class PageTransitionsThemeConverter
+    extends JsonConverter<PageTransitionsTheme, Map<String, dynamic>> {
+  const PageTransitionsThemeConverter();
 
+  @override
+  PageTransitionsTheme fromJson(Map<String, dynamic> json) {
+    return const NullablePageTransitionsThemeConverter().fromJson(json)!;
+  }
 
-        class PageTransitionsThemeConverter extends JsonConverter<PageTransitionsTheme,Map<String, dynamic>>{
-            const PageTransitionsThemeConverter();
-
-            @override
-            PageTransitionsTheme fromJson(Map<String, dynamic> json) {
-              return const NullablePageTransitionsThemeConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(PageTransitionsTheme value) {
-              return const NullablePageTransitionsThemeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(PageTransitionsTheme value) {
+    return const NullablePageTransitionsThemeConverter().toJson(value)!;
+  }
+}

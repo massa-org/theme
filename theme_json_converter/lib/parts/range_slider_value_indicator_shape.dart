@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableRangeSliderValueIndicatorShapeConverter
     extends JsonConverter<RangeSliderValueIndicatorShape?, String?> {
@@ -33,19 +33,19 @@ class NullableRangeSliderValueIndicatorShapeConverter
   }
 }
 
+class RangeSliderValueIndicatorShapeConverter
+    extends JsonConverter<RangeSliderValueIndicatorShape, String> {
+  const RangeSliderValueIndicatorShapeConverter();
 
+  @override
+  RangeSliderValueIndicatorShape fromJson(String json) {
+    return const NullableRangeSliderValueIndicatorShapeConverter()
+        .fromJson(json)!;
+  }
 
-        class RangeSliderValueIndicatorShapeConverter extends JsonConverter<RangeSliderValueIndicatorShape,String>{
-            const RangeSliderValueIndicatorShapeConverter();
-
-            @override
-            RangeSliderValueIndicatorShape fromJson(String json) {
-              return const NullableRangeSliderValueIndicatorShapeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(RangeSliderValueIndicatorShape value) {
-              return const NullableRangeSliderValueIndicatorShapeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(RangeSliderValueIndicatorShape value) {
+    return const NullableRangeSliderValueIndicatorShapeConverter()
+        .toJson(value)!;
+  }
+}

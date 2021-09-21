@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableButtonBarThemeDataConverter
     extends JsonConverter<ButtonBarThemeData?, Map<String, dynamic>?> {
@@ -61,19 +61,17 @@ class NullableButtonBarThemeDataConverter
   }
 }
 
+class ButtonBarThemeDataConverter
+    extends JsonConverter<ButtonBarThemeData, Map<String, dynamic>> {
+  const ButtonBarThemeDataConverter();
 
+  @override
+  ButtonBarThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableButtonBarThemeDataConverter().fromJson(json)!;
+  }
 
-        class ButtonBarThemeDataConverter extends JsonConverter<ButtonBarThemeData,Map<String, dynamic>>{
-            const ButtonBarThemeDataConverter();
-
-            @override
-            ButtonBarThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableButtonBarThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(ButtonBarThemeData value) {
-              return const NullableButtonBarThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(ButtonBarThemeData value) {
+    return const NullableButtonBarThemeDataConverter().toJson(value)!;
+  }
+}

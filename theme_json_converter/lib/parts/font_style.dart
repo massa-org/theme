@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableFontStyleConverter extends JsonConverter<FontStyle?, String?> {
   const NullableFontStyleConverter();
@@ -36,19 +36,16 @@ class NullableFontStyleConverter extends JsonConverter<FontStyle?, String?> {
   }
 }
 
+class FontStyleConverter extends JsonConverter<FontStyle, String> {
+  const FontStyleConverter();
 
+  @override
+  FontStyle fromJson(String json) {
+    return const NullableFontStyleConverter().fromJson(json)!;
+  }
 
-        class FontStyleConverter extends JsonConverter<FontStyle,String>{
-            const FontStyleConverter();
-
-            @override
-            FontStyle fromJson(String json) {
-              return const NullableFontStyleConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(FontStyle value) {
-              return const NullableFontStyleConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(FontStyle value) {
+    return const NullableFontStyleConverter().toJson(value)!;
+  }
+}

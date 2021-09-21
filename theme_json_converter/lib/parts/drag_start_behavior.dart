@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableDragStartBehaviorConverter
     extends JsonConverter<DragStartBehavior?, String?> {
@@ -37,19 +37,17 @@ class NullableDragStartBehaviorConverter
   }
 }
 
+class DragStartBehaviorConverter
+    extends JsonConverter<DragStartBehavior, String> {
+  const DragStartBehaviorConverter();
 
+  @override
+  DragStartBehavior fromJson(String json) {
+    return const NullableDragStartBehaviorConverter().fromJson(json)!;
+  }
 
-        class DragStartBehaviorConverter extends JsonConverter<DragStartBehavior,String>{
-            const DragStartBehaviorConverter();
-
-            @override
-            DragStartBehavior fromJson(String json) {
-              return const NullableDragStartBehaviorConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(DragStartBehavior value) {
-              return const NullableDragStartBehaviorConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(DragStartBehavior value) {
+    return const NullableDragStartBehaviorConverter().toJson(value)!;
+  }
+}

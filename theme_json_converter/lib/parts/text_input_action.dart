@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTextInputActionConverter
     extends JsonConverter<TextInputAction?, String?> {
@@ -114,19 +114,16 @@ class NullableTextInputActionConverter
   }
 }
 
+class TextInputActionConverter extends JsonConverter<TextInputAction, String> {
+  const TextInputActionConverter();
 
+  @override
+  TextInputAction fromJson(String json) {
+    return const NullableTextInputActionConverter().fromJson(json)!;
+  }
 
-        class TextInputActionConverter extends JsonConverter<TextInputAction,String>{
-            const TextInputActionConverter();
-
-            @override
-            TextInputAction fromJson(String json) {
-              return const NullableTextInputActionConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(TextInputAction value) {
-              return const NullableTextInputActionConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(TextInputAction value) {
+    return const NullableTextInputActionConverter().toJson(value)!;
+  }
+}

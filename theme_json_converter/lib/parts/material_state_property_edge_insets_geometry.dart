@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableMaterialStatePropertyEdgeInsetsGeometryConverter
     extends JsonConverter<MaterialStateProperty<EdgeInsetsGeometry?>?,
@@ -97,19 +97,21 @@ class NullableMaterialStatePropertyEdgeInsetsGeometryConverter
   }
 }
 
+class MaterialStatePropertyEdgeInsetsGeometryConverter extends JsonConverter<
+    MaterialStateProperty<EdgeInsetsGeometry?>, Map<String, dynamic>> {
+  const MaterialStatePropertyEdgeInsetsGeometryConverter();
 
+  @override
+  MaterialStateProperty<EdgeInsetsGeometry?> fromJson(
+      Map<String, dynamic> json) {
+    return const NullableMaterialStatePropertyEdgeInsetsGeometryConverter()
+        .fromJson(json)!;
+  }
 
-        class MaterialStatePropertyEdgeInsetsGeometryConverter extends JsonConverter<MaterialStateProperty<EdgeInsetsGeometry?>,Map<String, dynamic>>{
-            const MaterialStatePropertyEdgeInsetsGeometryConverter();
-
-            @override
-            MaterialStateProperty<EdgeInsetsGeometry?> fromJson(Map<String, dynamic> json) {
-              return const NullableMaterialStatePropertyEdgeInsetsGeometryConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(MaterialStateProperty<EdgeInsetsGeometry?> value) {
-              return const NullableMaterialStatePropertyEdgeInsetsGeometryConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(
+      MaterialStateProperty<EdgeInsetsGeometry?> value) {
+    return const NullableMaterialStatePropertyEdgeInsetsGeometryConverter()
+        .toJson(value)!;
+  }
+}

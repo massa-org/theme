@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableInteractiveInkFeatureFactoryConverter
     extends JsonConverter<InteractiveInkFeatureFactory?, String?> {
@@ -34,19 +34,18 @@ class NullableInteractiveInkFeatureFactoryConverter
   }
 }
 
+class InteractiveInkFeatureFactoryConverter
+    extends JsonConverter<InteractiveInkFeatureFactory, String> {
+  const InteractiveInkFeatureFactoryConverter();
 
+  @override
+  InteractiveInkFeatureFactory fromJson(String json) {
+    return const NullableInteractiveInkFeatureFactoryConverter()
+        .fromJson(json)!;
+  }
 
-        class InteractiveInkFeatureFactoryConverter extends JsonConverter<InteractiveInkFeatureFactory,String>{
-            const InteractiveInkFeatureFactoryConverter();
-
-            @override
-            InteractiveInkFeatureFactory fromJson(String json) {
-              return const NullableInteractiveInkFeatureFactoryConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(InteractiveInkFeatureFactory value) {
-              return const NullableInteractiveInkFeatureFactoryConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(InteractiveInkFeatureFactory value) {
+    return const NullableInteractiveInkFeatureFactoryConverter().toJson(value)!;
+  }
+}

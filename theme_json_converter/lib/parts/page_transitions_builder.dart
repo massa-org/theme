@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullablePageTransitionsBuilderConverter
     extends JsonConverter<PageTransitionsBuilder?, String?> {
@@ -45,19 +45,17 @@ class NullablePageTransitionsBuilderConverter
   }
 }
 
+class PageTransitionsBuilderConverter
+    extends JsonConverter<PageTransitionsBuilder, String> {
+  const PageTransitionsBuilderConverter();
 
+  @override
+  PageTransitionsBuilder fromJson(String json) {
+    return const NullablePageTransitionsBuilderConverter().fromJson(json)!;
+  }
 
-        class PageTransitionsBuilderConverter extends JsonConverter<PageTransitionsBuilder,String>{
-            const PageTransitionsBuilderConverter();
-
-            @override
-            PageTransitionsBuilder fromJson(String json) {
-              return const NullablePageTransitionsBuilderConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(PageTransitionsBuilder value) {
-              return const NullablePageTransitionsBuilderConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(PageTransitionsBuilder value) {
+    return const NullablePageTransitionsBuilderConverter().toJson(value)!;
+  }
+}

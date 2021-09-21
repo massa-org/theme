@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableVerticalDirectionConverter
     extends JsonConverter<VerticalDirection?, String?> {
@@ -36,19 +36,17 @@ class NullableVerticalDirectionConverter
   }
 }
 
+class VerticalDirectionConverter
+    extends JsonConverter<VerticalDirection, String> {
+  const VerticalDirectionConverter();
 
+  @override
+  VerticalDirection fromJson(String json) {
+    return const NullableVerticalDirectionConverter().fromJson(json)!;
+  }
 
-        class VerticalDirectionConverter extends JsonConverter<VerticalDirection,String>{
-            const VerticalDirectionConverter();
-
-            @override
-            VerticalDirection fromJson(String json) {
-              return const NullableVerticalDirectionConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(VerticalDirection value) {
-              return const NullableVerticalDirectionConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(VerticalDirection value) {
+    return const NullableVerticalDirectionConverter().toJson(value)!;
+  }
+}

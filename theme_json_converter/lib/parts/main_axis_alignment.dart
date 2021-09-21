@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableMainAxisAlignmentConverter
     extends JsonConverter<MainAxisAlignment?, String?> {
@@ -60,19 +60,17 @@ class NullableMainAxisAlignmentConverter
   }
 }
 
+class MainAxisAlignmentConverter
+    extends JsonConverter<MainAxisAlignment, String> {
+  const MainAxisAlignmentConverter();
 
+  @override
+  MainAxisAlignment fromJson(String json) {
+    return const NullableMainAxisAlignmentConverter().fromJson(json)!;
+  }
 
-        class MainAxisAlignmentConverter extends JsonConverter<MainAxisAlignment,String>{
-            const MainAxisAlignmentConverter();
-
-            @override
-            MainAxisAlignment fromJson(String json) {
-              return const NullableMainAxisAlignmentConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(MainAxisAlignment value) {
-              return const NullableMainAxisAlignmentConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(MainAxisAlignment value) {
+    return const NullableMainAxisAlignmentConverter().toJson(value)!;
+  }
+}

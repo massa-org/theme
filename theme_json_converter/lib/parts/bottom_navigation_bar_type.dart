@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableBottomNavigationBarTypeConverter
     extends JsonConverter<BottomNavigationBarType?, String?> {
@@ -36,19 +36,17 @@ class NullableBottomNavigationBarTypeConverter
   }
 }
 
+class BottomNavigationBarTypeConverter
+    extends JsonConverter<BottomNavigationBarType, String> {
+  const BottomNavigationBarTypeConverter();
 
+  @override
+  BottomNavigationBarType fromJson(String json) {
+    return const NullableBottomNavigationBarTypeConverter().fromJson(json)!;
+  }
 
-        class BottomNavigationBarTypeConverter extends JsonConverter<BottomNavigationBarType,String>{
-            const BottomNavigationBarTypeConverter();
-
-            @override
-            BottomNavigationBarType fromJson(String json) {
-              return const NullableBottomNavigationBarTypeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(BottomNavigationBarType value) {
-              return const NullableBottomNavigationBarTypeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(BottomNavigationBarType value) {
+    return const NullableBottomNavigationBarTypeConverter().toJson(value)!;
+  }
+}

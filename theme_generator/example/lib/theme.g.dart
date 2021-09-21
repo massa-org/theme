@@ -34,7 +34,7 @@ _$_ThemeData2 _$$_ThemeData2FromJson(Map<String, dynamic> json) =>
       addressBarBackgroundColor: const NullableColorConverter()
           .fromJson(json['addressBarBackgroundColor'] as String?),
       decor: const NullableTextDecorationConverter()
-          .fromJson(json['decor'] as List<String>?),
+          .fromJson(json['decor'] as String?),
       style: const NullableTextStyleConverter()
           .fromJson(json['style'] as Map<String, dynamic>?),
     );

@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableMaterialTapTargetSizeConverter
     extends JsonConverter<MaterialTapTargetSize?, String?> {
@@ -36,19 +36,17 @@ class NullableMaterialTapTargetSizeConverter
   }
 }
 
+class MaterialTapTargetSizeConverter
+    extends JsonConverter<MaterialTapTargetSize, String> {
+  const MaterialTapTargetSizeConverter();
 
+  @override
+  MaterialTapTargetSize fromJson(String json) {
+    return const NullableMaterialTapTargetSizeConverter().fromJson(json)!;
+  }
 
-        class MaterialTapTargetSizeConverter extends JsonConverter<MaterialTapTargetSize,String>{
-            const MaterialTapTargetSizeConverter();
-
-            @override
-            MaterialTapTargetSize fromJson(String json) {
-              return const NullableMaterialTapTargetSizeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(MaterialTapTargetSize value) {
-              return const NullableMaterialTapTargetSizeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(MaterialTapTargetSize value) {
+    return const NullableMaterialTapTargetSizeConverter().toJson(value)!;
+  }
+}

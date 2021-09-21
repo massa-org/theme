@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableButtonStyleConverter
     extends JsonConverter<ButtonStyle?, Map<String, dynamic>?> {
@@ -114,19 +114,17 @@ class NullableButtonStyleConverter
   }
 }
 
+class ButtonStyleConverter
+    extends JsonConverter<ButtonStyle, Map<String, dynamic>> {
+  const ButtonStyleConverter();
 
+  @override
+  ButtonStyle fromJson(Map<String, dynamic> json) {
+    return const NullableButtonStyleConverter().fromJson(json)!;
+  }
 
-        class ButtonStyleConverter extends JsonConverter<ButtonStyle,Map<String, dynamic>>{
-            const ButtonStyleConverter();
-
-            @override
-            ButtonStyle fromJson(Map<String, dynamic> json) {
-              return const NullableButtonStyleConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(ButtonStyle value) {
-              return const NullableButtonStyleConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(ButtonStyle value) {
+    return const NullableButtonStyleConverter().toJson(value)!;
+  }
+}

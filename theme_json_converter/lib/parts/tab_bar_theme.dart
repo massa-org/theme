@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTabBarThemeConverter
     extends JsonConverter<TabBarTheme?, Map<String, dynamic>?> {
@@ -53,19 +53,17 @@ class NullableTabBarThemeConverter
   }
 }
 
+class TabBarThemeConverter
+    extends JsonConverter<TabBarTheme, Map<String, dynamic>> {
+  const TabBarThemeConverter();
 
+  @override
+  TabBarTheme fromJson(Map<String, dynamic> json) {
+    return const NullableTabBarThemeConverter().fromJson(json)!;
+  }
 
-        class TabBarThemeConverter extends JsonConverter<TabBarTheme,Map<String, dynamic>>{
-            const TabBarThemeConverter();
-
-            @override
-            TabBarTheme fromJson(Map<String, dynamic> json) {
-              return const NullableTabBarThemeConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(TabBarTheme value) {
-              return const NullableTabBarThemeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(TabBarTheme value) {
+    return const NullableTabBarThemeConverter().toJson(value)!;
+  }
+}

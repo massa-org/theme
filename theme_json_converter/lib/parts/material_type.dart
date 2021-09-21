@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableMaterialTypeConverter
     extends JsonConverter<MaterialType?, String?> {
@@ -54,19 +54,16 @@ class NullableMaterialTypeConverter
   }
 }
 
+class MaterialTypeConverter extends JsonConverter<MaterialType, String> {
+  const MaterialTypeConverter();
 
+  @override
+  MaterialType fromJson(String json) {
+    return const NullableMaterialTypeConverter().fromJson(json)!;
+  }
 
-        class MaterialTypeConverter extends JsonConverter<MaterialType,String>{
-            const MaterialTypeConverter();
-
-            @override
-            MaterialType fromJson(String json) {
-              return const NullableMaterialTypeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(MaterialType value) {
-              return const NullableMaterialTypeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(MaterialType value) {
+    return const NullableMaterialTypeConverter().toJson(value)!;
+  }
+}

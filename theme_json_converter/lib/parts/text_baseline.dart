@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTextBaselineConverter
     extends JsonConverter<TextBaseline?, String?> {
@@ -37,19 +37,16 @@ class NullableTextBaselineConverter
   }
 }
 
+class TextBaselineConverter extends JsonConverter<TextBaseline, String> {
+  const TextBaselineConverter();
 
+  @override
+  TextBaseline fromJson(String json) {
+    return const NullableTextBaselineConverter().fromJson(json)!;
+  }
 
-        class TextBaselineConverter extends JsonConverter<TextBaseline,String>{
-            const TextBaselineConverter();
-
-            @override
-            TextBaseline fromJson(String json) {
-              return const NullableTextBaselineConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(TextBaseline value) {
-              return const NullableTextBaselineConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(TextBaseline value) {
+    return const NullableTextBaselineConverter().toJson(value)!;
+  }
+}

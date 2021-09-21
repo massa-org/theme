@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableOverflowConverter extends JsonConverter<Overflow?, String?> {
   const NullableOverflowConverter();
@@ -40,19 +40,16 @@ class NullableOverflowConverter extends JsonConverter<Overflow?, String?> {
   }
 }
 
+class OverflowConverter extends JsonConverter<Overflow, String> {
+  const OverflowConverter();
 
+  @override
+  Overflow fromJson(String json) {
+    return const NullableOverflowConverter().fromJson(json)!;
+  }
 
-        class OverflowConverter extends JsonConverter<Overflow,String>{
-            const OverflowConverter();
-
-            @override
-            Overflow fromJson(String json) {
-              return const NullableOverflowConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(Overflow value) {
-              return const NullableOverflowConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(Overflow value) {
+    return const NullableOverflowConverter().toJson(value)!;
+  }
+}

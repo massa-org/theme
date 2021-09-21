@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableFloatingActionButtonLocationConverter
     extends JsonConverter<FloatingActionButtonLocation?, String?> {
@@ -113,19 +113,18 @@ class NullableFloatingActionButtonLocationConverter
   }
 }
 
+class FloatingActionButtonLocationConverter
+    extends JsonConverter<FloatingActionButtonLocation, String> {
+  const FloatingActionButtonLocationConverter();
 
+  @override
+  FloatingActionButtonLocation fromJson(String json) {
+    return const NullableFloatingActionButtonLocationConverter()
+        .fromJson(json)!;
+  }
 
-        class FloatingActionButtonLocationConverter extends JsonConverter<FloatingActionButtonLocation,String>{
-            const FloatingActionButtonLocationConverter();
-
-            @override
-            FloatingActionButtonLocation fromJson(String json) {
-              return const NullableFloatingActionButtonLocationConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(FloatingActionButtonLocation value) {
-              return const NullableFloatingActionButtonLocationConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(FloatingActionButtonLocation value) {
+    return const NullableFloatingActionButtonLocationConverter().toJson(value)!;
+  }
+}

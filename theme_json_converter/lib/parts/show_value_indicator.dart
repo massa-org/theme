@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableShowValueIndicatorConverter
     extends JsonConverter<ShowValueIndicator?, String?> {
@@ -51,19 +51,17 @@ class NullableShowValueIndicatorConverter
   }
 }
 
+class ShowValueIndicatorConverter
+    extends JsonConverter<ShowValueIndicator, String> {
+  const ShowValueIndicatorConverter();
 
+  @override
+  ShowValueIndicator fromJson(String json) {
+    return const NullableShowValueIndicatorConverter().fromJson(json)!;
+  }
 
-        class ShowValueIndicatorConverter extends JsonConverter<ShowValueIndicator,String>{
-            const ShowValueIndicatorConverter();
-
-            @override
-            ShowValueIndicator fromJson(String json) {
-              return const NullableShowValueIndicatorConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(ShowValueIndicator value) {
-              return const NullableShowValueIndicatorConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(ShowValueIndicator value) {
+    return const NullableShowValueIndicatorConverter().toJson(value)!;
+  }
+}

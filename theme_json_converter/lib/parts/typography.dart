@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTypographyConverter
     extends JsonConverter<Typography?, Map<String, dynamic>?> {
@@ -47,19 +47,17 @@ class NullableTypographyConverter
   }
 }
 
+class TypographyConverter
+    extends JsonConverter<Typography, Map<String, dynamic>> {
+  const TypographyConverter();
 
+  @override
+  Typography fromJson(Map<String, dynamic> json) {
+    return const NullableTypographyConverter().fromJson(json)!;
+  }
 
-        class TypographyConverter extends JsonConverter<Typography,Map<String, dynamic>>{
-            const TypographyConverter();
-
-            @override
-            Typography fromJson(Map<String, dynamic> json) {
-              return const NullableTypographyConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(Typography value) {
-              return const NullableTypographyConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(Typography value) {
+    return const NullableTypographyConverter().toJson(value)!;
+  }
+}

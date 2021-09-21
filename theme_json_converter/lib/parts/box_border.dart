@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableBoxBorderConverter
     extends JsonConverter<BoxBorder?, Map<String, dynamic>?> {
@@ -55,19 +55,17 @@ class NullableBoxBorderConverter
   }
 }
 
+class BoxBorderConverter
+    extends JsonConverter<BoxBorder, Map<String, dynamic>> {
+  const BoxBorderConverter();
 
+  @override
+  BoxBorder fromJson(Map<String, dynamic> json) {
+    return const NullableBoxBorderConverter().fromJson(json)!;
+  }
 
-        class BoxBorderConverter extends JsonConverter<BoxBorder,Map<String, dynamic>>{
-            const BoxBorderConverter();
-
-            @override
-            BoxBorder fromJson(Map<String, dynamic> json) {
-              return const NullableBoxBorderConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(BoxBorder value) {
-              return const NullableBoxBorderConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(BoxBorder value) {
+    return const NullableBoxBorderConverter().toJson(value)!;
+  }
+}

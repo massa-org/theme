@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableChipThemeDataConverter
     extends JsonConverter<ChipThemeData?, Map<String, dynamic>?> {
@@ -100,19 +100,17 @@ class NullableChipThemeDataConverter
   }
 }
 
+class ChipThemeDataConverter
+    extends JsonConverter<ChipThemeData, Map<String, dynamic>> {
+  const ChipThemeDataConverter();
 
+  @override
+  ChipThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableChipThemeDataConverter().fromJson(json)!;
+  }
 
-        class ChipThemeDataConverter extends JsonConverter<ChipThemeData,Map<String, dynamic>>{
-            const ChipThemeDataConverter();
-
-            @override
-            ChipThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableChipThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(ChipThemeData value) {
-              return const NullableChipThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(ChipThemeData value) {
+    return const NullableChipThemeDataConverter().toJson(value)!;
+  }
+}

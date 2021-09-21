@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableSystemUiOverlayStyleConverter
     extends JsonConverter<SystemUiOverlayStyle?, String?> {
@@ -33,19 +33,17 @@ class NullableSystemUiOverlayStyleConverter
   }
 }
 
+class SystemUiOverlayStyleConverter
+    extends JsonConverter<SystemUiOverlayStyle, String> {
+  const SystemUiOverlayStyleConverter();
 
+  @override
+  SystemUiOverlayStyle fromJson(String json) {
+    return const NullableSystemUiOverlayStyleConverter().fromJson(json)!;
+  }
 
-        class SystemUiOverlayStyleConverter extends JsonConverter<SystemUiOverlayStyle,String>{
-            const SystemUiOverlayStyleConverter();
-
-            @override
-            SystemUiOverlayStyle fromJson(String json) {
-              return const NullableSystemUiOverlayStyleConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(SystemUiOverlayStyle value) {
-              return const NullableSystemUiOverlayStyleConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(SystemUiOverlayStyle value) {
+    return const NullableSystemUiOverlayStyleConverter().toJson(value)!;
+  }
+}

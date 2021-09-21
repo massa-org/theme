@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableStrutStyleConverter
     extends JsonConverter<StrutStyle?, Map<String, dynamic>?> {
@@ -50,19 +50,17 @@ class NullableStrutStyleConverter
   }
 }
 
+class StrutStyleConverter
+    extends JsonConverter<StrutStyle, Map<String, dynamic>> {
+  const StrutStyleConverter();
 
+  @override
+  StrutStyle fromJson(Map<String, dynamic> json) {
+    return const NullableStrutStyleConverter().fromJson(json)!;
+  }
 
-        class StrutStyleConverter extends JsonConverter<StrutStyle,Map<String, dynamic>>{
-            const StrutStyleConverter();
-
-            @override
-            StrutStyle fromJson(Map<String, dynamic> json) {
-              return const NullableStrutStyleConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(StrutStyle value) {
-              return const NullableStrutStyleConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(StrutStyle value) {
+    return const NullableStrutStyleConverter().toJson(value)!;
+  }
+}

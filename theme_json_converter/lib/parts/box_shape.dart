@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableBoxShapeConverter extends JsonConverter<BoxShape?, String?> {
   const NullableBoxShapeConverter();
@@ -36,19 +36,16 @@ class NullableBoxShapeConverter extends JsonConverter<BoxShape?, String?> {
   }
 }
 
+class BoxShapeConverter extends JsonConverter<BoxShape, String> {
+  const BoxShapeConverter();
 
+  @override
+  BoxShape fromJson(String json) {
+    return const NullableBoxShapeConverter().fromJson(json)!;
+  }
 
-        class BoxShapeConverter extends JsonConverter<BoxShape,String>{
-            const BoxShapeConverter();
-
-            @override
-            BoxShape fromJson(String json) {
-              return const NullableBoxShapeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(BoxShape value) {
-              return const NullableBoxShapeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(BoxShape value) {
+    return const NullableBoxShapeConverter().toJson(value)!;
+  }
+}

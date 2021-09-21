@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableClipConverter extends JsonConverter<Clip?, String?> {
   const NullableClipConverter();
@@ -47,19 +47,16 @@ class NullableClipConverter extends JsonConverter<Clip?, String?> {
   }
 }
 
+class ClipConverter extends JsonConverter<Clip, String> {
+  const ClipConverter();
 
+  @override
+  Clip fromJson(String json) {
+    return const NullableClipConverter().fromJson(json)!;
+  }
 
-        class ClipConverter extends JsonConverter<Clip,String>{
-            const ClipConverter();
-
-            @override
-            Clip fromJson(String json) {
-              return const NullableClipConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(Clip value) {
-              return const NullableClipConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(Clip value) {
+    return const NullableClipConverter().toJson(value)!;
+  }
+}

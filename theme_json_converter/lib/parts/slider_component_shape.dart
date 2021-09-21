@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableSliderComponentShapeConverter
     extends JsonConverter<SliderComponentShape?, String?> {
@@ -35,19 +35,17 @@ class NullableSliderComponentShapeConverter
   }
 }
 
+class SliderComponentShapeConverter
+    extends JsonConverter<SliderComponentShape, String> {
+  const SliderComponentShapeConverter();
 
+  @override
+  SliderComponentShape fromJson(String json) {
+    return const NullableSliderComponentShapeConverter().fromJson(json)!;
+  }
 
-        class SliderComponentShapeConverter extends JsonConverter<SliderComponentShape,String>{
-            const SliderComponentShapeConverter();
-
-            @override
-            SliderComponentShape fromJson(String json) {
-              return const NullableSliderComponentShapeConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(SliderComponentShape value) {
-              return const NullableSliderComponentShapeConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(SliderComponentShape value) {
+    return const NullableSliderComponentShapeConverter().toJson(value)!;
+  }
+}

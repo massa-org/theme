@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableMaterialStatePropertyTextStyleConverter extends JsonConverter<
     MaterialStateProperty<TextStyle?>?, Map<String, dynamic>?> {
@@ -78,19 +78,19 @@ class NullableMaterialStatePropertyTextStyleConverter extends JsonConverter<
   }
 }
 
+class MaterialStatePropertyTextStyleConverter extends JsonConverter<
+    MaterialStateProperty<TextStyle?>, Map<String, dynamic>> {
+  const MaterialStatePropertyTextStyleConverter();
 
+  @override
+  MaterialStateProperty<TextStyle?> fromJson(Map<String, dynamic> json) {
+    return const NullableMaterialStatePropertyTextStyleConverter()
+        .fromJson(json)!;
+  }
 
-        class MaterialStatePropertyTextStyleConverter extends JsonConverter<MaterialStateProperty<TextStyle?>,Map<String, dynamic>>{
-            const MaterialStatePropertyTextStyleConverter();
-
-            @override
-            MaterialStateProperty<TextStyle?> fromJson(Map<String, dynamic> json) {
-              return const NullableMaterialStatePropertyTextStyleConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(MaterialStateProperty<TextStyle?> value) {
-              return const NullableMaterialStatePropertyTextStyleConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(MaterialStateProperty<TextStyle?> value) {
+    return const NullableMaterialStatePropertyTextStyleConverter()
+        .toJson(value)!;
+  }
+}

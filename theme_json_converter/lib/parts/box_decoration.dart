@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableBoxDecorationConverter
     extends JsonConverter<BoxDecoration?, Map<String, dynamic>?> {
@@ -63,19 +63,17 @@ class NullableBoxDecorationConverter
   }
 }
 
+class BoxDecorationConverter
+    extends JsonConverter<BoxDecoration, Map<String, dynamic>> {
+  const BoxDecorationConverter();
 
+  @override
+  BoxDecoration fromJson(Map<String, dynamic> json) {
+    return const NullableBoxDecorationConverter().fromJson(json)!;
+  }
 
-        class BoxDecorationConverter extends JsonConverter<BoxDecoration,Map<String, dynamic>>{
-            const BoxDecorationConverter();
-
-            @override
-            BoxDecoration fromJson(Map<String, dynamic> json) {
-              return const NullableBoxDecorationConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(BoxDecoration value) {
-              return const NullableBoxDecorationConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(BoxDecoration value) {
+    return const NullableBoxDecorationConverter().toJson(value)!;
+  }
+}

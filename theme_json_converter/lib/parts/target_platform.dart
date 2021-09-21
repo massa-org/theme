@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableTargetPlatformConverter
     extends JsonConverter<TargetPlatform?, String?> {
@@ -65,19 +65,16 @@ class NullableTargetPlatformConverter
   }
 }
 
+class TargetPlatformConverter extends JsonConverter<TargetPlatform, String> {
+  const TargetPlatformConverter();
 
+  @override
+  TargetPlatform fromJson(String json) {
+    return const NullableTargetPlatformConverter().fromJson(json)!;
+  }
 
-        class TargetPlatformConverter extends JsonConverter<TargetPlatform,String>{
-            const TargetPlatformConverter();
-
-            @override
-            TargetPlatform fromJson(String json) {
-              return const NullableTargetPlatformConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(TargetPlatform value) {
-              return const NullableTargetPlatformConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(TargetPlatform value) {
+    return const NullableTargetPlatformConverter().toJson(value)!;
+  }
+}

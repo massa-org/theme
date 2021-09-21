@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableRectConverter
     extends JsonConverter<Rect?, Map<String, dynamic>?> {
@@ -79,19 +79,16 @@ class NullableRectConverter
   }
 }
 
+class RectConverter extends JsonConverter<Rect, Map<String, dynamic>> {
+  const RectConverter();
 
+  @override
+  Rect fromJson(Map<String, dynamic> json) {
+    return const NullableRectConverter().fromJson(json)!;
+  }
 
-        class RectConverter extends JsonConverter<Rect,Map<String, dynamic>>{
-            const RectConverter();
-
-            @override
-            Rect fromJson(Map<String, dynamic> json) {
-              return const NullableRectConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(Rect value) {
-              return const NullableRectConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(Rect value) {
+    return const NullableRectConverter().toJson(value)!;
+  }
+}

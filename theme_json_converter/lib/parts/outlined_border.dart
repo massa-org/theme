@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableOutlinedBorderConverter
     extends JsonConverter<OutlinedBorder?, Map<String, dynamic>?> {
@@ -108,19 +108,17 @@ class NullableOutlinedBorderConverter
   }
 }
 
+class OutlinedBorderConverter
+    extends JsonConverter<OutlinedBorder, Map<String, dynamic>> {
+  const OutlinedBorderConverter();
 
+  @override
+  OutlinedBorder fromJson(Map<String, dynamic> json) {
+    return const NullableOutlinedBorderConverter().fromJson(json)!;
+  }
 
-        class OutlinedBorderConverter extends JsonConverter<OutlinedBorder,Map<String, dynamic>>{
-            const OutlinedBorderConverter();
-
-            @override
-            OutlinedBorder fromJson(Map<String, dynamic> json) {
-              return const NullableOutlinedBorderConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(OutlinedBorder value) {
-              return const NullableOutlinedBorderConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(OutlinedBorder value) {
+    return const NullableOutlinedBorderConverter().toJson(value)!;
+  }
+}

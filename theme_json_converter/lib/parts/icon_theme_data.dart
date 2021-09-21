@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableIconThemeDataConverter
     extends JsonConverter<IconThemeData?, Map<String, dynamic>?> {
@@ -31,19 +31,17 @@ class NullableIconThemeDataConverter
   }
 }
 
+class IconThemeDataConverter
+    extends JsonConverter<IconThemeData, Map<String, dynamic>> {
+  const IconThemeDataConverter();
 
+  @override
+  IconThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableIconThemeDataConverter().fromJson(json)!;
+  }
 
-        class IconThemeDataConverter extends JsonConverter<IconThemeData,Map<String, dynamic>>{
-            const IconThemeDataConverter();
-
-            @override
-            IconThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableIconThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(IconThemeData value) {
-              return const NullableIconThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(IconThemeData value) {
+    return const NullableIconThemeDataConverter().toJson(value)!;
+  }
+}

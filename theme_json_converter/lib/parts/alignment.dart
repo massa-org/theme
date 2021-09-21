@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableAlignmentConverter extends JsonConverter<Alignment?, String?> {
   const NullableAlignmentConverter();

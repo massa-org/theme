@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableFloatingLabelBehaviorConverter
     extends JsonConverter<FloatingLabelBehavior?, String?> {
@@ -44,19 +44,17 @@ class NullableFloatingLabelBehaviorConverter
   }
 }
 
+class FloatingLabelBehaviorConverter
+    extends JsonConverter<FloatingLabelBehavior, String> {
+  const FloatingLabelBehaviorConverter();
 
+  @override
+  FloatingLabelBehavior fromJson(String json) {
+    return const NullableFloatingLabelBehaviorConverter().fromJson(json)!;
+  }
 
-        class FloatingLabelBehaviorConverter extends JsonConverter<FloatingLabelBehavior,String>{
-            const FloatingLabelBehaviorConverter();
-
-            @override
-            FloatingLabelBehavior fromJson(String json) {
-              return const NullableFloatingLabelBehaviorConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(FloatingLabelBehavior value) {
-              return const NullableFloatingLabelBehaviorConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(FloatingLabelBehavior value) {
+    return const NullableFloatingLabelBehaviorConverter().toJson(value)!;
+  }
+}

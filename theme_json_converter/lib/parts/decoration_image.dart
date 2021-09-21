@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableDecorationImageConverter
     extends JsonConverter<DecorationImage?, Map<String, dynamic>?> {
@@ -43,19 +43,17 @@ class NullableDecorationImageConverter
   }
 }
 
+class DecorationImageConverter
+    extends JsonConverter<DecorationImage, Map<String, dynamic>> {
+  const DecorationImageConverter();
 
+  @override
+  DecorationImage fromJson(Map<String, dynamic> json) {
+    return const NullableDecorationImageConverter().fromJson(json)!;
+  }
 
-        class DecorationImageConverter extends JsonConverter<DecorationImage,Map<String, dynamic>>{
-            const DecorationImageConverter();
-
-            @override
-            DecorationImage fromJson(Map<String, dynamic> json) {
-              return const NullableDecorationImageConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(DecorationImage value) {
-              return const NullableDecorationImageConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(DecorationImage value) {
+    return const NullableDecorationImageConverter().toJson(value)!;
+  }
+}

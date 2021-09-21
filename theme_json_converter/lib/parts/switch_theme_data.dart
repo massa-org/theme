@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableSwitchThemeDataConverter
     extends JsonConverter<SwitchThemeData?, Map<String, dynamic>?> {
@@ -37,19 +37,17 @@ class NullableSwitchThemeDataConverter
   }
 }
 
+class SwitchThemeDataConverter
+    extends JsonConverter<SwitchThemeData, Map<String, dynamic>> {
+  const SwitchThemeDataConverter();
 
+  @override
+  SwitchThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableSwitchThemeDataConverter().fromJson(json)!;
+  }
 
-        class SwitchThemeDataConverter extends JsonConverter<SwitchThemeData,Map<String, dynamic>>{
-            const SwitchThemeDataConverter();
-
-            @override
-            SwitchThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableSwitchThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(SwitchThemeData value) {
-              return const NullableSwitchThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(SwitchThemeData value) {
+    return const NullableSwitchThemeDataConverter().toJson(value)!;
+  }
+}

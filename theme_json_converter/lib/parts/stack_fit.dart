@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableStackFitConverter extends JsonConverter<StackFit?, String?> {
   const NullableStackFitConverter();
@@ -43,19 +43,16 @@ class NullableStackFitConverter extends JsonConverter<StackFit?, String?> {
   }
 }
 
+class StackFitConverter extends JsonConverter<StackFit, String> {
+  const StackFitConverter();
 
+  @override
+  StackFit fromJson(String json) {
+    return const NullableStackFitConverter().fromJson(json)!;
+  }
 
-        class StackFitConverter extends JsonConverter<StackFit,String>{
-            const StackFitConverter();
-
-            @override
-            StackFit fromJson(String json) {
-              return const NullableStackFitConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(StackFit value) {
-              return const NullableStackFitConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(StackFit value) {
+    return const NullableStackFitConverter().toJson(value)!;
+  }
+}

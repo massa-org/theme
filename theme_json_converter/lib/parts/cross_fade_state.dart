@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableCrossFadeStateConverter
     extends JsonConverter<CrossFadeState?, String?> {
@@ -36,19 +36,16 @@ class NullableCrossFadeStateConverter
   }
 }
 
+class CrossFadeStateConverter extends JsonConverter<CrossFadeState, String> {
+  const CrossFadeStateConverter();
 
+  @override
+  CrossFadeState fromJson(String json) {
+    return const NullableCrossFadeStateConverter().fromJson(json)!;
+  }
 
-        class CrossFadeStateConverter extends JsonConverter<CrossFadeState,String>{
-            const CrossFadeStateConverter();
-
-            @override
-            CrossFadeState fromJson(String json) {
-              return const NullableCrossFadeStateConverter().fromJson(json)!;
-            }
-
-            @override
-            String toJson(CrossFadeState value) {
-              return const NullableCrossFadeStateConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  String toJson(CrossFadeState value) {
+    return const NullableCrossFadeStateConverter().toJson(value)!;
+  }
+}

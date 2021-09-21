@@ -1,4 +1,4 @@
-part of json;
+part of theme_json_converter;
 
 class NullableCupertinoThemeDataConverter
     extends JsonConverter<CupertinoThemeData?, Map<String, dynamic>?> {
@@ -68,19 +68,17 @@ class NullableCupertinoThemeDataConverter
   }
 }
 
+class CupertinoThemeDataConverter
+    extends JsonConverter<CupertinoThemeData, Map<String, dynamic>> {
+  const CupertinoThemeDataConverter();
 
+  @override
+  CupertinoThemeData fromJson(Map<String, dynamic> json) {
+    return const NullableCupertinoThemeDataConverter().fromJson(json)!;
+  }
 
-        class CupertinoThemeDataConverter extends JsonConverter<CupertinoThemeData,Map<String, dynamic>>{
-            const CupertinoThemeDataConverter();
-
-            @override
-            CupertinoThemeData fromJson(Map<String, dynamic> json) {
-              return const NullableCupertinoThemeDataConverter().fromJson(json)!;
-            }
-
-            @override
-            Map<String, dynamic> toJson(CupertinoThemeData value) {
-              return const NullableCupertinoThemeDataConverter().toJson(value)!;
-            }
-        }
-        
+  @override
+  Map<String, dynamic> toJson(CupertinoThemeData value) {
+    return const NullableCupertinoThemeDataConverter().toJson(value)!;
+  }
+}
