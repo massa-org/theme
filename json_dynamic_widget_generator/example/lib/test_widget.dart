@@ -32,17 +32,33 @@ class WChild extends StatelessWidget {
 
 @JsonDynamicWidgetAnnotation()
 class WRChild extends StatelessWidget {
-  const WRChild({required Widget child, Key? key}) : super(key: key);
+  const WRChild({
+    required this.color,
+    required this.child,
+    Key? key,
+  }) : super(key: key);
+
+  final Color? color;
+  final Widget child;
+
+  static void onRegister(String name) {}
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        color: color,
+        child: child,
+      ),
+    );
   }
 }
 
 @JsonDynamicWidgetAnnotation()
 class WChildren extends StatelessWidget {
-  const WChildren({List<Widget> children = const [], Key? key}) : super(key: key);
+  const WChildren({List<Widget> children = const [], Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

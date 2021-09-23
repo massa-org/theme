@@ -1,4 +1,3 @@
-
 enum ChildType {
   none,
   child,
@@ -43,5 +42,18 @@ String getChildParamString(ChildType type) {
       return 'child: child,';
     case ChildType.children:
       return 'children: children,';
+  }
+}
+
+String getChildCount(ChildType type) {
+  switch (type) {
+    case ChildType.none:
+      return '0';
+    case ChildType.child:
+      return '1';
+    case ChildType.requiredChild:
+      return '1';
+    case ChildType.children:
+      return '-1';
   }
 }

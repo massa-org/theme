@@ -34,6 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     SomeTextWidgetBuilder.register();
+    WRChildBuilder.register();
   }
 
   @override
@@ -41,13 +42,19 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
       body: const JsonWidget({
-        'type': 'center',
+        'type': 'w_r_child',
+        'args': {
+          'color': '#00ff00',
+        },
         'child': {
-          'type': 'SomeTextWidget',
-          'args': {
-            'html': 'someHtml',
-            'color': '#ff0000',
-          },
+          'type': 'center',
+          'child': {
+            'type': 'some_text_widget',
+            'args': {
+              'html': 'someHtml',
+              'color': '#ff0000',
+            },
+          }
         }
       }),
     );

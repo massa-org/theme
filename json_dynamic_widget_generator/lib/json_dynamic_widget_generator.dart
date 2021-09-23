@@ -9,7 +9,8 @@ import 'package:source_gen/source_gen.dart';
 
 import 'templates/template.dart';
 
-class JsonComponentGenerator extends GeneratorForAnnotation<JsonDynamicWidgetAnnotation> {
+class JsonComponentGenerator
+    extends GeneratorForAnnotation<JsonDynamicWidgetAnnotation> {
   @override
   String generateForAnnotatedElement(
     Element element,
@@ -44,6 +45,8 @@ class JsonComponentGenerator extends GeneratorForAnnotation<JsonDynamicWidgetAnn
           (e.isNamed && e.name == 'children' && setType(ChildType.children));
     }
 
+    final onRegister = element.lookUpMethod('onRegister', element.library);
+
     final parameters = constructor.parameters.where((e) => !_omit(e));
 
     final enrich =
@@ -56,6 +59,7 @@ class JsonComponentGenerator extends GeneratorForAnnotation<JsonDynamicWidgetAnn
       builderName: annotation.peek('builderName')?.stringValue,
       childType: type,
       hasKey: hasKey,
+      hasOnRegister: onRegister != null,
     );
   }
 }

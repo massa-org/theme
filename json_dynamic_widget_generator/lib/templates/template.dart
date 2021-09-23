@@ -1,5 +1,6 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:json_dynamic_widget_generator/templates/child_param.dart';
+import 'package:json_dynamic_widget_generator/templates/on_register.dart';
 import 'package:recase/recase.dart';
 
 import 'converters.dart';
@@ -12,6 +13,7 @@ String enrichTemplate({
   required String? builderName,
   required ChildType childType,
   required bool hasKey,
+  required bool hasOnRegister,
 }) {
   final all = required.followedBy(optional).followedBy(named).toList();
   final positional = required.followedBy(optional).toList();
@@ -21,6 +23,7 @@ String enrichTemplate({
 
   final String childVar = getChildString(childType);
   final String childParam = getChildParamString(childType);
+  final String childCount = getChildCount(childType);
 
   return '''
 // generate for widget with arguments
@@ -31,7 +34,7 @@ class $argumentName {
   /*ALL final \${e.type} \${e.name};*/
   ${all.map((e) => 'final ${e.type} ${e.name};').join('\n')}
 
-  $argumentName(
+  const $argumentName(
     /*REQUIRED this.\${e.name}, */
     ${required.map((e) => 'this.${e.name},').join('\n')}
     /*OPTIONAL this.\${e.name}, */
@@ -45,7 +48,7 @@ class $argumentName {
 }
 
 class $_builderName extends JsonWidgetBuilder {
-  $_builderName(this.arguments) : super(numSupportedChildren: 0);
+  $_builderName(this.arguments) : super(numSupportedChildren: $childCount);
 
   static const type = '${ReCase(className).snakeCase}';
   final $argumentName arguments;
@@ -78,14 +81,7 @@ class $_builderName extends JsonWidgetBuilder {
     );
   }
 
-  static void register(){
-    JsonWidgetRegistry.instance.registerCustomBuilder(
-      $_builderName.type,
-      JsonWidgetBuilderContainer(
-        builder: $_builderName.fromDynamic,
-      ),
-    );
-  }
+${registrationFnString(className: className, builderName: _builderName, hasOnRegister: hasOnRegister)}
 }
 ''';
 }

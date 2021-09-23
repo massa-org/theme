@@ -12,3 +12,8 @@ _SomeTextWidgetArguments _$SomeTextWidgetArgumentsFromJson(
       json['html'] as String,
       color: const NullableColorConverter().fromJson(json['color'] as String?),
     );
+
+_WRChildArguments _$WRChildArgumentsFromJson(Map<String, dynamic> json) =>
+    _WRChildArguments(
+      color: const NullableColorConverter().fromJson(json['color'] as String?),
+    );

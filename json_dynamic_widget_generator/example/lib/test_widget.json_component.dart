@@ -7,6 +7,7 @@ part of 'test_widget.dart';
 // **************************************************************************
 
 // generate for widget with arguments
+@immutable
 @JsonSerializable(createToJson: false)
 @NullableColorConverter()
 class _SomeTextWidgetArguments {
@@ -14,7 +15,7 @@ class _SomeTextWidgetArguments {
   final String html;
   final Color? color;
 
-  _SomeTextWidgetArguments(
+  const _SomeTextWidgetArguments(
     /*REQUIRED this.${e.name}, */
     this.html,
     /*OPTIONAL this.${e.name}, */
@@ -60,8 +61,8 @@ class SomeTextWidgetBuilder extends JsonWidgetBuilder {
     );
   }
 
-  static void register() {
-    JsonWidgetRegistry.instance.registerCustomBuilder(
+  static void register([JsonWidgetRegistry? registry]) {
+    (registry ?? JsonWidgetRegistry.instance).registerCustomBuilder(
       SomeTextWidgetBuilder.type,
       JsonWidgetBuilderContainer(
         builder: SomeTextWidgetBuilder.fromDynamic,
@@ -72,7 +73,7 @@ class SomeTextWidgetBuilder extends JsonWidgetBuilder {
 
 // generate for widget without arguments
 class WChildBuilder extends JsonWidgetBuilder {
-  WChildBuilder() : super(numSupportedChildren: 0);
+  WChildBuilder() : super(numSupportedChildren: 1);
 
   static const type = 'w_child';
 
@@ -103,8 +104,8 @@ class WChildBuilder extends JsonWidgetBuilder {
     );
   }
 
-  static void register() {
-    JsonWidgetRegistry.instance.registerCustomBuilder(
+  static void register([JsonWidgetRegistry? registry]) {
+    (registry ?? JsonWidgetRegistry.instance).registerCustomBuilder(
       WChildBuilder.type,
       JsonWidgetBuilderContainer(
         builder: WChildBuilder.fromDynamic,
@@ -113,11 +114,33 @@ class WChildBuilder extends JsonWidgetBuilder {
   }
 }
 
-// generate for widget without arguments
+// generate for widget with arguments
+@immutable
+@JsonSerializable(createToJson: false)
+@NullableColorConverter()
+class _WRChildArguments {
+  /*ALL final ${e.type} ${e.name};*/
+  final Color? color;
+
+  const _WRChildArguments(
+      /*REQUIRED this.${e.name}, */
+
+      /*OPTIONAL this.${e.name}, */
+
+      /*NAMED this.${e.name}, */
+      {
+    this.color,
+  });
+
+  factory _WRChildArguments.fromJson(Map<String, dynamic> json) =>
+      _$WRChildArgumentsFromJson(json);
+}
+
 class WRChildBuilder extends JsonWidgetBuilder {
-  WRChildBuilder() : super(numSupportedChildren: 0);
+  WRChildBuilder(this.arguments) : super(numSupportedChildren: 1);
 
   static const type = 'w_r_child';
+  final _WRChildArguments arguments;
 
   static WRChildBuilder? fromDynamic(
     dynamic map, {
@@ -125,7 +148,8 @@ class WRChildBuilder extends JsonWidgetBuilder {
   }) {
     if (map == null) return null;
 
-    return WRChildBuilder();
+    return WRChildBuilder(
+        _WRChildArguments.fromJson(<String, dynamic>{...map}));
   }
 
   @override
@@ -139,24 +163,29 @@ class WRChildBuilder extends JsonWidgetBuilder {
         getChild(data).build(context: context, childBuilder: childBuilder);
 
     return WRChild(
+      /* POSITIONAL arguments.${e.name},*/
+
+      /* NAMED ${e.name}: arguments.${e.name},*/
+      color: arguments.color,
       key: key,
       child: child,
     );
   }
 
-  static void register() {
-    JsonWidgetRegistry.instance.registerCustomBuilder(
+  static void register([JsonWidgetRegistry? registry]) {
+    (registry ?? JsonWidgetRegistry.instance).registerCustomBuilder(
       WRChildBuilder.type,
       JsonWidgetBuilderContainer(
         builder: WRChildBuilder.fromDynamic,
       ),
     );
+    WRChild.onRegister(WRChildBuilder.type);
   }
 }
 
 // generate for widget without arguments
 class WChildrenBuilder extends JsonWidgetBuilder {
-  WChildrenBuilder() : super(numSupportedChildren: 0);
+  WChildrenBuilder() : super(numSupportedChildren: -1);
 
   static const type = 'w_children';
 
@@ -192,8 +221,8 @@ class WChildrenBuilder extends JsonWidgetBuilder {
     );
   }
 
-  static void register() {
-    JsonWidgetRegistry.instance.registerCustomBuilder(
+  static void register([JsonWidgetRegistry? registry]) {
+    (registry ?? JsonWidgetRegistry.instance).registerCustomBuilder(
       WChildrenBuilder.type,
       JsonWidgetBuilderContainer(
         builder: WChildrenBuilder.fromDynamic,
